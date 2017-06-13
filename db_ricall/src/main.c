@@ -6,7 +6,7 @@
 /*   By: sjones <sjones@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/05 15:48:38 by sjones            #+#    #+#             */
-/*   Updated: 2017/06/12 18:55:52 by sjones           ###   ########.fr       */
+/*   Updated: 2017/06/12 20:21:45 by sjones           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int		main(int ac, char **av)
 	AC = ac;
 	fclose(fp);
 	if (ac == 1)
-		printf("%s\n", "use -help for help");
+		printf("%s\n", "use help for list of commands");
 	else
 	{
 		check_query(db, 0);

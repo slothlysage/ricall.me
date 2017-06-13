@@ -6,7 +6,7 @@
 #    By: sjones <sjones@student.42.us.org>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/05/05 18:34:09 by sjones            #+#    #+#              #
-#    Updated: 2017/05/05 18:43:27 by sjones           ###   ########.fr        #
+#    Updated: 2017/06/12 20:33:52 by sjones           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,10 +22,6 @@ SRC_NAME =	add_ent.c		\
 			check_query.c	\
 			cp_av2db.c		\
 			db_2file.c		\
-			delete_all.c	\
-			delete_data.c	\
-			delete_ent.c	\
-			edit_ent.c		\
 			export_all.c	\
 			export_ent.c	\
 			ft_2dstrlen.c	\

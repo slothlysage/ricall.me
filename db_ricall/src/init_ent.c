@@ -6,13 +6,13 @@
 /*   By: sjones <sjones@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/05 15:48:31 by sjones            #+#    #+#             */
-/*   Updated: 2017/05/05 15:48:32 by sjones           ###   ########.fr       */
+/*   Updated: 2017/06/12 20:43:13 by sjones           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_db.h"
 
-t_ent	*init_ent(char *key, void *data)
+t_ent	*init_ent(int num, char *time, char *event, char *color)
 {
 	t_ent	*ent;
 
@@ -20,8 +20,10 @@ t_ent	*init_ent(char *key, void *data)
 		return (NULL);
 	if (ent)
 	{
-		ent->key = key;
-		ent->data = data;
+		ent->num = num;
+		ent->time = time;
+		ent->event = event;
+		ent->color = color;
 		ent->next = NULL;
 	}
 	return (ent);

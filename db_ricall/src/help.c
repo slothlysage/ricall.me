@@ -6,7 +6,7 @@
 /*   By: sjones <sjones@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/05 18:34:18 by sjones            #+#    #+#             */
-/*   Updated: 2017/05/05 22:12:46 by sjones           ###   ########.fr       */
+/*   Updated: 2017/06/12 20:30:59 by sjones           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,11 @@
 
 int		help(void)
 {
-	ft_putendl("The commands are as follows:");
-	ft_putendl("help");
-	ft_putendl("exit");
-	ft_putendl("print_all");
-	ft_putendl("print");
-	ft_putendl("add");
-	ft_putendl("edit");
-	ft_putendl("delete_all");
-	ft_putendl("delete_ent");
-	ft_putendl("delete_data");
-	ft_putendl("export_all");
-	ft_putendl("export_ent");
+	ft_putendl("\x1b[43mThe commands are as follows:\x1b[0m");
+	ft_putendl("\x1b[45mhelp\x1b[0m");
+	ft_putendl("\x1b[45mprint_all\x1b[0m");
+	ft_putendl("\x1b[45mprint \x1b[46mnum\x1b[0m");
+	ft_putendl("\x1b[45mexport_all\x1b[0m");
+	ft_putendl("\x1b[45mexport_ent \x1b[46mnum\x1b[0m");
 	return (1);
 }
