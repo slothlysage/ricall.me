@@ -6,13 +6,18 @@
 /*   By: sjones <sjones@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/05 16:59:36 by sjones            #+#    #+#             */
-/*   Updated: 2017/05/05 17:00:44 by sjones           ###   ########.fr       */
+/*   Updated: 2017/06/12 18:30:13 by sjones           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_db.h"
 
-void	print_color(char *s1, char *s2)
+void	print_color(char *time, char *event, char *color)
 {
-	printf("\x1b[31mkey:\x1b[0m %s\n\x1b[36mData:\x1b[0m\n%s\x1b[0", s1, s2);
+	if (strncmp(color, "blu", 3) == 0)
+		printf("\x1b[45m%s\x1b[0m - \x1b[34m%s\x1b[0m\n", time, event);
+	if (strncmp(color, "red", 3) == 0)
+		printf("\x1b[45m%s\x1b[0m - \x1b[91m%s\x1b[0m\n", time, event);
+	if (strncmp(color, "gre", 3) == 0)
+		printf("\x1b[45m%s\x1b[0m - \x1b[92m%s\x1b[0m\n", time, event);
 }

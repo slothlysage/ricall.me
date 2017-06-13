@@ -6,7 +6,7 @@
 /*   By: sjones <sjones@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/05 15:48:04 by sjones            #+#    #+#             */
-/*   Updated: 2017/05/05 19:44:16 by sjones           ###   ########.fr       */
+/*   Updated: 2017/06/12 15:54:16 by sjones           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ void				print_err(void);
 void				check_query(t_db *db, int i);
 int					print_all(t_db *db);
 int					print_ent(t_db *db, char *key);
-void				print_color(char *s1, char *s2);
+void				print_color(char *time, char *event, char *color);
 void				add_ent(t_db *db, char *key, char *data);
 void				edit_ent(t_db *db, char *key, char *data);
 void				delete_data(t_db *db, char *key, char *data);

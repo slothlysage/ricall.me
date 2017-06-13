@@ -6,7 +6,7 @@
 /*   By: sjones <sjones@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/05 15:48:52 by sjones            #+#    #+#             */
-/*   Updated: 2017/05/05 19:39:23 by sjones           ###   ########.fr       */
+/*   Updated: 2017/06/12 18:34:46 by sjones           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@ int		print_ent(t_db *db, char *key)
 	t_ent	*t;
 	int		i;
 	char	*tmp;
+	char	*event;
 
-	printf("printing %s now\n", key);
 	t = db->ents;
 	while (t && ft_strcmp(t->key, key) != 0)
 		t = t->next;
@@ -26,13 +26,11 @@ int		print_ent(t_db *db, char *key)
 	{
 		tmp = ft_strdup(t->data);
 		i = 0;
-		while (tmp[i] != '\0')
-		{
-			if (tmp[i] == 30)
-				tmp[i] = '\n';
+		while (tmp[i] != 30)
 			i++;
-		}
-		print_color(t->key, tmp);
+		event = ft_strndup(tmp, i);
+		tmp += (i + 1);
+		print_color(t->key, event, tmp);
 	}
 	else
 		printf("There was no entry for %s\n", key);

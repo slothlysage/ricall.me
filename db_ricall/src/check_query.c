@@ -6,7 +6,7 @@
 /*   By: sjones <sjones@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/05 15:46:59 by sjones            #+#    #+#             */
-/*   Updated: 2017/06/12 14:42:11 by sjones           ###   ########.fr       */
+/*   Updated: 2017/06/12 18:40:34 by sjones           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,5 +82,4 @@ void	check_query(t_db *db, int i)
 		else
 			i += i < (AC - 1) ? (1) : (0);
 	}
-	ft_putendl("got to the end of the commands");
 }
