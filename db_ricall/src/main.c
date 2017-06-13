@@ -6,7 +6,7 @@
 /*   By: sjones <sjones@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/05 15:48:38 by sjones            #+#    #+#             */
-/*   Updated: 2017/06/12 14:29:59 by sjones           ###   ########.fr       */
+/*   Updated: 2017/06/12 18:55:52 by sjones           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int		main(int ac, char **av)
 	t_db	*db;
 	FILE	*fp;
 
-	fp = fopen("derpbase.db", "r+");
+	fp = fopen("ricall.db", "r+");
 	db = init_db(fp, ac, av);
 	AC = ac;
 	fclose(fp);

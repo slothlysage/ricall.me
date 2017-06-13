@@ -6,7 +6,7 @@
 /*   By: sjones <sjones@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/05 15:48:24 by sjones            #+#    #+#             */
-/*   Updated: 2017/05/05 20:34:07 by sjones           ###   ########.fr       */
+/*   Updated: 2017/06/12 18:53:57 by sjones           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,10 @@ t_db	*init_db(FILE *fp, int ac, char **av)
 	while (get_next_line(fileno(fp), &tmp) > 0)
 	{
 		if (k-- == 1)
+		{
 			tmpk = ft_strdup(tmp);
+			db->entry_count += 1;
+		}
 		else
 		{
 			tmpd = ft_strdup(tmp);
