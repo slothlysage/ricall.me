@@ -52,6 +52,7 @@ typedef struct		s_db
 	t_ent			*ents;
 }					t_db;
 
+char                *next_in(char *line);
 int					char_len(char *line);
 t_db				*init_db(FILE *fp, int ac, char **av);
 t_ent				*init_ent(char *line);

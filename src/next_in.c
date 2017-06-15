@@ -1,26 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   char_len.c                                         :+:      :+:    :+:   */
+/*   next_in.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sjones <sjones@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/06/14 22:19:16 by sjones            #+#    #+#             */
-/*   Updated: 2017/06/14 22:58:21 by sjones           ###   ########.fr       */
+/*   Created: 2017/05/05 15:46:53 by sjones            #+#    #+#             */
+/*   Updated: 2017/06/14 22:18:40 by sjones           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/ft_db.h"
 
-int		char_len(char *line)
+char    *next_in(char *line)
 {
-	int		r;
-	char	*t;
-
-	r = 0;
-	t = line;
-	while (*t++ != 39 && *t != 44)
-		r++;
-	return (r);
+    line = ft_strchr(line, 44);
+    line = ft_strchr(line, 58);
+    line += 2;
+    if (*line++ != 39)
+        line--;
+    return (line);
 }
-

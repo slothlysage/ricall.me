@@ -12,44 +12,48 @@
 
 #include "../include/ft_db.h"
 
-void	begin_list(t_db *db, char *line)
+void    begin_list(t_db *db, char *line)
 {
-	char	*t;
+    char    *t;
 
-	t = line;
-	if (!(DE = ft_memalloc(sizeof(t_ent))))
-		return ;
-	if (DE)
-	{
-		t = ft_strchr(t, 58);
-		DE->user_id = strndup(line, char_len(line));
-		t = ft_strchr(t, 58);
-		DE->event_id = strndup(line, 30);
-		t = ft_strchr(t, 58);
-		DE->ricall_time = strndup(line, 19);
-		t = ft_strchr(t, 58);
-		DE->start_date = strndup(line, 19);
-		t = ft_strchr(t, 58);
-		DE->end_date = strndup(line, 19);
-		t = ft_strchr(t, 58);
-		DE->location = strndup(line, char_len(line));
-		t = ft_strchr(t, 58);
-		DE->current_address = strndup(line, char_len(line));
-		t = ft_strchr(t, 58);
-		DE->event_address = strndup(line, char_len(line));
-		t = ft_strchr(t, 58);
-		DE->title = strndup(line, char_len(line));
-		t = ft_strchr(t, 58);
-		DE->category = strndup(line, char_len(line));
-		t = ft_strchr(t, 58);
-		DE->categoryid = ft_atoi(line);
-		t = ft_strchr(t, 58);
-		DE->urgency = ft_atoi(line);
-		t = ft_strchr(t, 58);
-		DE->reminded = ft_atoi(line);
-		t = ft_strchr(t, 58);
-		DE->confirmation = ft_atoi(line);
-		t = ft_strchr(t, 58);
-		DE->active = ft_atoi(line); 
-	}
+    t = line;
+    if (!(DE = (t_ent*)malloc(sizeof(t_ent))))
+        return ;
+    if (DE)
+    {
+        t += char_len(t);
+        t++;
+        DE->user_id = strndup(t, char_len(t));
+        t = next_in(t);
+        DE->event_id = strndup(t, char_len(t));
+        t = next_in(t);
+        DE->ricall_time = strndup(t, 19);
+        t = next_in(t);
+        DE->leave_time = strndup(t, 19);
+        t = next_in(t);
+        DE->start_date = strndup(t, 19);
+        t = next_in(t);
+        DE->end_date = strndup(t, 19);
+        t = next_in(t);
+        DE->location = strndup(t, char_len(t));
+        t = next_in(t);
+        DE->current_address = strndup(t, char_len(t));
+        t = next_in(t);
+        DE->event_address = strndup(t, char_len(t));
+        t = next_in(t);
+        DE->title = strndup(t, char_len(t));
+        t = next_in(t);
+        DE->category = strndup(t, char_len(t));
+        t = next_in(t);
+        DE->categoryid = ft_atoi(t);
+        t = next_in(t);
+        DE->urgency = ft_atoi(t);
+        t = next_in(t);
+        DE->reminded = ft_atoi(t);
+        t = next_in(t);
+        DE->confirmation = ft_atoi(t);
+        t = next_in(t);
+        DE->active = atoi(t);
+        DE->next = NULL;
+    }
 }

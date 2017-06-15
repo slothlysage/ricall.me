@@ -20,12 +20,10 @@ int		export_ent(t_db *db, char *event_id)
 	printf("exporting %s now\n", event_id);
 	t = DE;
 	fp = fopen(t->event_id, "w+");
-	while (t->event_id != event_id)
+    while (t && ft_strcmp(t->event_id, event_id) != 0)
 		t = t->next;
 	if (t)
-	{
 		all_puts(t, fp);
-	}
 	else
 		printf("There was no entry for %s\n", event_id);
 	return (2);

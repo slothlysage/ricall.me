@@ -18,8 +18,8 @@ int		main(int ac, char **av)
 	FILE	*fp;
 
 	fp = fopen("ricall.db", "r+");
-	db = init_db(fp, ac, av);
-	AC = ac;
+    db = init_db(fp, ac, av);
+    AC = ac;
 	fclose(fp);
 	if (ac == 1)
 		printf("%s\n", "use help for list of commands");

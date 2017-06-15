@@ -15,6 +15,8 @@
 NAME = ft_db
 
 SRC =	add_ent.c		\
+			next_in.c		\
+			all_puts.c		\
 			begin_list.c	\
 			check_query.c	\
 			cp_av2db.c		\

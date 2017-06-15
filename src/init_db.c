@@ -22,19 +22,22 @@ t_db	*init_db(FILE *fp, int ac, char **av)
 	if (!(db = ft_memalloc(sizeof(t_db))))
 		return (NULL);
 	k = 0;
-	line = "";
-	get_next_line(fileno(fp), &tmp);
+    line = "";
+	db->ents = NULL;
+    get_next_line(fileno(fp), &tmp);
 	while (get_next_line(fileno(fp), &tmp) > 0)
 	{
 		if (k % 17 == 0)
 		{
-			db->entry_count += 1;
+            db->entry_count += 1;
 			if (k != 0)
+            {
 				add_ent(db, line);
+            }
 		}
 		else
 		{
-			line = ft_strcat(line, tmp);
+			line = ft_strjoin(line, tmp);
 		}
 		k += 1;
 	}
