@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_db.h"
+#include "../include/ft_db.h"
 
 void	all_puts(t_ent *ent, FILE *fp)
 {

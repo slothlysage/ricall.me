@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_db.h"
+#include "../include/ft_db.h"
 
 t_ent	*init_ent(int num, char *time, char *event, char *color)
 {

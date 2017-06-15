@@ -10,12 +10,11 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_db.h"
+#include "../include/ft_db.h"
 
 int		print_all(t_db *db)
 {
 	t_ent	*t;
-	char	*event;
 
 	ft_putendl("\x1b[43mUpcoming Events\x1b[0m");
 	t = DE;

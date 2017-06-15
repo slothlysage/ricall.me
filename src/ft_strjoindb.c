@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_db.h"
+#include "../include/ft_db.h"
 
 char	*ft_strjoindb(t_db *db, int i, int j, int k)
 {

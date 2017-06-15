@@ -10,12 +10,10 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_db.h"
+#include "../include/ft_db.h"
 
 void	begin_list(t_db *db, char *time, char *event, char *color)
 {
-	t_ent *t;
-
 	if (!(DE = ft_memalloc(sizeof(t_ent))))
 		return ;
 	if (DE)

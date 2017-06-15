@@ -10,13 +10,12 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_db.h"
+#include "../include/ft_db.h"
 
 void	add_ent(t_db *db, int num, char *time, char *event, char *color)
 {
 	t_ent	*t;
 	t_ent	*next;
-	char	c;
 
 	t = DE;
 	while (t->next && strcmp(DE->time, time) < 0)
