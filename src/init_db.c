@@ -6,7 +6,7 @@
 /*   By: sjones <sjones@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/05 15:48:24 by sjones            #+#    #+#             */
-/*   Updated: 2017/06/14 22:03:22 by sjones           ###   ########.fr       */
+/*   Updated: 2017/06/14 22:58:03 by sjones           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@ t_db	*init_db(FILE *fp, int ac, char **av)
 	char	*tmp;
 	char	*line;
 	int		k;
-	int		i;
 
 	if (!(db = ft_memalloc(sizeof(t_db))))
 		return (NULL);

@@ -6,7 +6,7 @@
 /*   By: sjones <sjones@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/05 15:46:41 by sjones            #+#    #+#             */
-/*   Updated: 2017/06/14 22:03:01 by sjones           ###   ########.fr       */
+/*   Updated: 2017/06/14 22:58:42 by sjones           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@ void	add_ent(t_db *db, char *line)
 	t_ent	*t1;
 	t_ent	*t2;
 	t_ent	*next;
-	char	c;
 
 	t1 = DE;
 	t2 = init_ent(line);
