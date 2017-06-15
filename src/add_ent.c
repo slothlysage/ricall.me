@@ -6,23 +6,26 @@
 /*   By: sjones <sjones@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/05 15:46:41 by sjones            #+#    #+#             */
-/*   Updated: 2017/06/12 20:42:41 by sjones           ###   ########.fr       */
+/*   Updated: 2017/06/14 22:03:01 by sjones           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/ft_db.h"
 
-void	add_ent(t_db *db, int num, char *time, char *event, char *color)
+void	add_ent(t_db *db, char *line)
 {
-	t_ent	*t;
+	t_ent	*t1;
+	t_ent	*t2;
 	t_ent	*next;
+	char	c;
 
-	t = DE;
-	while (t->next && strcmp(DE->time, time) < 0)
+	t1 = DE;
+	t2 = init_ent(line);
+	while (t1->next && strcmp(t1->start_date, t2->start_date) < 0)
 	{
-		t = t->next;
+		t1 = t1->next;
 	}
-	next = t->next;
-	t->next = init_ent(num, time, event, color);
-	t->next->next = next;
+	next = t1->next;
+	t1->next = t2;
+	t1->next->next = next;
 }

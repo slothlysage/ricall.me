@@ -6,7 +6,7 @@
 /*   By: sjones <sjones@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/05 15:48:45 by sjones            #+#    #+#             */
-/*   Updated: 2017/06/12 20:17:43 by sjones           ###   ########.fr       */
+/*   Updated: 2017/06/14 22:47:03 by sjones           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,14 @@
 int		print_all(t_db *db)
 {
 	t_ent	*t;
+	FILE	*fp;
 
+	fp = stdout;
 	ft_putendl("\x1b[43mUpcoming Events\x1b[0m");
 	t = DE;
 	while (t)
 	{
-		print_color(t->time, t->event, t->color);
+		all_puts(t, fp);
 		t = t->next;
 	}
 	return (1);

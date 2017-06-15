@@ -6,7 +6,7 @@
 /*   By: sjones <sjones@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/05 15:48:04 by sjones            #+#    #+#             */
-/*   Updated: 2017/06/12 20:43:38 by sjones           ###   ########.fr       */
+/*   Updated: 2017/06/14 22:47:09 by sjones           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,13 +21,27 @@
 # define AC db->ac
 # define AV db->av
 
+#define DB = ricall.me
+
 typedef struct		s_ent
 {
-	int				num;
-	char			*time;
-	char			*event;
-	char			*color;
-	struct s_ent	*next;
+	char			*user_id;
+	char			*event_id;
+	char			*ricall_time;
+	char			*leave_time;
+	char			*start_date;
+	char			*end_date;
+	char			*location; 
+	char			*current_address;
+	char			*event_address;
+	char			*title;
+	char			*category;
+	int				categoryid;
+	int				urgency;
+	int				reminded;
+	int				confirmation:1;
+	int				active:1;
+	struct 			s_ent	*next;
 }					t_ent;
 
 typedef struct		s_db
@@ -38,17 +52,17 @@ typedef struct		s_db
 	t_ent			*ents;
 }					t_db;
 
+int					char_len(char *line);
 t_db				*init_db(FILE *fp, int ac, char **av);
-t_ent				*init_ent(int num, char *time, char *event, char *color);
+t_ent				*init_ent(char *line);
 void				print_help(void);
 void				print_err(void);
 void				check_query(t_db *db, int i);
 int					print_all(t_db *db);
-int					print_ent(t_db *db, int num);
-void				print_color(char *time, char *event, char *color);
-void				add_ent(t_db *db, int num, char *time, char *event, char *color);
+int					print_ent(t_db *db, char *event_id);
+void				add_ent(t_db *db, char *line);
 int					export_all(t_db *db);
-int					export_ent(t_db *db, int num);
+int					export_ent(t_db *db, char *event_id);
 void				db_2file(t_db *db);
 void				all_puts(t_ent *ent, FILE *fp);
 char				**cp_av2db(int ac, char **av);
@@ -56,7 +70,7 @@ int					ft_print2d(char **array);
 char				*data_rm(char *s1, char *s2);
 char				*ft_strjoindb(t_db *db, int i, int j, int k);
 int					ft_2dstrlen(char **str, int num);
-void				begin_list(t_db *db, char *time, char *event, char *color);
+void				begin_list(t_db *db, char *line);
 int					help(void);
 
 #endif
