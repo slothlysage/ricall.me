@@ -6,7 +6,7 @@
 /*   By: sjones <sjones@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/05 15:46:59 by sjones            #+#    #+#             */
-/*   Updated: 2017/06/14 22:57:36 by sjones           ###   ########.fr       */
+/*   Updated: 2017/06/15 15:17:37 by sjones           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,8 @@ void	check_query(t_db *db, int i)
 			i += export_all(db);
 		else if (strcmp(AV[i], "export_ent") == 0)
 			i += export_ent(db, AV[i + 1]);
+		else if (strcmp(AV[i], "input_file") == 0)
+			i += input_file(db);
 		else
 			i += i < (AC - 1) ? (1) : (0);
 	}

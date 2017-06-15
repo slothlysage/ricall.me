@@ -1,32 +1,45 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   add_ent.c                                          :+:      :+:    :+:   */
+/*   input_file.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sjones <sjones@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/05/05 15:46:41 by sjones            #+#    #+#             */
-/*   Updated: 2017/06/15 14:01:24 by sjones           ###   ########.fr       */
+/*   Created: 2017/05/05 15:48:24 by sjones            #+#    #+#             */
+/*   Updated: 2017/06/15 15:18:42 by sjones           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/ft_db.h"
 
-void	add_ent(t_db *db, char *line)
+int		input_file(t_db *db)
 {
-	t_ent	*t1;
-	t_ent	*t2;
+	FILE	*fp;
+	char	*tmp;
+	char	*line;
+	int		k;
 
-	if (DE == NULL)
-    {
-        begin_list(db, line);
-        return ;
-    }
-    t1 = DE;
-	t2 = init_ent(line);
-	while (t1->next && ft_strcmp(t1->start_date, t2->start_date) < 0)
+	fp = fopen("../output_file.json", "r+");
+	k = 0;
+    line = "";
+	db->ents = NULL;
+    get_next_line(fileno(fp), &tmp);
+	while (get_next_line(fileno(fp), &tmp) > 0)
 	{
-		t1 = t1->next;
+		if (k % 17 == 0)
+		{
+            db->entry_count += 1;
+			if (k != 0)
+            {
+				add_ent(db, line);
+            }
+		}
+		else
+		{
+			line = ft_strjoin(line, tmp);
+		}
+		k += 1;
 	}
-	t1->next = t2;
+	fclose(fp);
+	return (1);
 }
