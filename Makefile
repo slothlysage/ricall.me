@@ -6,7 +6,7 @@
 #    By: sjones <sjones@student.42.us.org>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/05/05 18:34:09 by sjones            #+#    #+#              #
-#    Updated: 2017/06/14 22:48:29 by sjones           ###   ########.fr        #
+#    Updated: 2017/06/15 15:23:32 by sjones           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,6 +15,7 @@
 NAME = ft_db
 
 SRC =	add_ent.c		\
+			input_file.c	\
 			next_in.c		\
 			all_puts.c		\
 			begin_list.c	\
