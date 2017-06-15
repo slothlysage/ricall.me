@@ -37,7 +37,7 @@ INC = ./include/ft_db.h
 VPATH = src/:
 LIBFT_PATH = libft
 LIB = -Llibft -lft
-FLAGS = -Wall -Wextra 
+FLAGS = -Wall -Wextra -Werror
 
 all: libft $(NAME)
 libft:
