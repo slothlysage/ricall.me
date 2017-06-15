@@ -16,7 +16,7 @@
 # include <stdio.h>
 # include <strings.h>
 # include <unistd.h>
-# include "libft.h"
+# include "../libft/libft.h"
 # define DE db->ents
 # define AC db->ac
 # define AV db->av

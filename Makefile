@@ -33,20 +33,23 @@ SRC =	add_ent.c		\
 			help.c
 
 OBJ = $(SRC:.c=.o)
-INC = 	./include/
+INC = ./include/ft_db.h 
 VPATH = src/:
-LIB = -L./src/libftprintf.a
-FLAGS = -Wall -Wextra -Werror
+LIBFT_PATH = libft
+LIB = -Llibft -lft
+FLAGS = -Wall -Wextra 
 
-all: $(NAME)
+all: libft $(NAME)
+libft:
+	make -C libft
 
 # Executables
 $(NAME): $(OBJ)
-	gcc $(FLAGS) -o $@ $^ -I $(INC) $(LIB)
+	gcc -o $@ $(FLAGS) $^ -include $(INC) $(LIB)
 
 # Object files
 $(OBJ): $(SRC)
-	gcc $(FLAGS) -c $^ -I $(INC)
+	gcc -c $^ $(FLAGS) -include $(INC) 
 
 # Cleaning rules
 clean:
