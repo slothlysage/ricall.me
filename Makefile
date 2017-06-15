@@ -37,7 +37,11 @@ INC = ./include/ft_db.h
 VPATH = src/:
 LIBFT_PATH = libft
 LIB = -Llibft -lft
-FLAGS = -Wall -Wextra 
+FLAGS = -Wall -Wextra -Werror
+GREEN		= \033[32m
+RED			= \033[31m
+DEFAULT	= \033[37m
+CYAN    = \x1b[36m
 
 all: libft $(NAME)
 libft:
@@ -45,17 +49,20 @@ libft:
 
 # Executables
 $(NAME): $(OBJ)
-	gcc -o $@ $(FLAGS) $^ -include $(INC) $(LIB)
+	@gcc -o $@ $(FLAGS) $^ -include $(INC) $(LIB)
+	@echo "$(GREEN)Ricall database built.$(DEFALUT)"
 
 # Object files
 $(OBJ): $(SRC)
-	gcc -c $^ $(FLAGS) -include $(INC) 
+	@gcc -c $^ $(FLAGS) -include $(INC) 
 
 # Cleaning rules
 clean:
-	rm -rf $(OBJ)
+	@rm -rf $(OBJ)
+	@echo "$(RED)Ricall object files removed. $(DEFALUT)"
 
 fclean: clean
-	rm -rf $(NAME)
+	@rm -rf $(NAME)
+	@echo "$(RED)Ricall database removed.$(DEFALUT)"
 
 re: fclean all

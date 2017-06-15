@@ -35,7 +35,7 @@ long long	ft_atoi_long(const char *s)
 		i++;
 	}
 	if (i > 19)
-		return (2147483649);
+		return (2147483647);
 	else
 		return (sum * isneg);
 }
