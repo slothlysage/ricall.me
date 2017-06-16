@@ -6,7 +6,7 @@
 /*   By: sjones <sjones@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/05 15:48:31 by sjones            #+#    #+#             */
-/*   Updated: 2017/06/14 22:20:12 by sjones           ###   ########.fr       */
+/*   Updated: 2017/06/15 18:49:56 by sjones           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ t_ent	*init_ent(char *line)
 	char	*t;
 
 	t = line;
+	ft_putendl("init_ent");
 	if (!(e = (t_ent*)malloc(sizeof(t_ent))))
 		return (NULL);
 	if (e)
@@ -57,5 +58,6 @@ t_ent	*init_ent(char *line)
 		e->active = atoi(t);
         e->next = NULL;
 	}
+	all_puts(e, stdout);
 	return (e);
 }
