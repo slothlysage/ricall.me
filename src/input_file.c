@@ -6,7 +6,7 @@
 /*   By: sjones <sjones@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/05 15:48:24 by sjones            #+#    #+#             */
-/*   Updated: 2017/06/15 21:32:43 by sjones           ###   ########.fr       */
+/*   Updated: 2017/06/15 21:36:22 by sjones           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,14 @@ int		input_file(t_db *db)
 
 	ft_putendl("am I here?1");
 	fp = fopen("../output_file.json", "r+");
+	ft_putendl("am I here after I opened file?");
 	k = 0;
     line = "";
     get_next_line(fileno(fp), &tmp);
+	ft_putendl("am I here after a GNL?");
 	while (get_next_line(fileno(fp), &tmp) > 0)
 	{
+		ft_putendl("am I here loopin?");
 		if (k % 17 == 1)
             db->entry_count += 1;
 		else if (k % 17 == 0)
