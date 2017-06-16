@@ -6,7 +6,7 @@
 /*   By: sjones <sjones@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/05 15:48:38 by sjones            #+#    #+#             */
-/*   Updated: 2017/06/12 20:21:45 by sjones           ###   ########.fr       */
+/*   Updated: 2017/06/15 19:54:52 by sjones           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,8 @@ int		main(int ac, char **av)
 
 	fp = fopen("ricall.db", "r+");
     db = init_db(fp, ac, av);
-    AC = ac;
+    ft_putendl("survived init_db");
+	AC = ac;
 	fclose(fp);
 	if (ac == 1)
 		printf("%s\n", "use help for list of commands");
