@@ -6,7 +6,7 @@
 /*   By: sjones <sjones@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/05 15:48:04 by sjones            #+#    #+#             */
-/*   Updated: 2017/06/15 19:39:47 by sjones           ###   ########.fr       */
+/*   Updated: 2017/06/15 20:35:18 by sjones           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,8 +39,8 @@ typedef struct		s_ent
 	int				categoryid;
 	int				urgency;
 	int				reminded;
-	int				confirmation:1;
-	int				active:1;
+	int				confirmation;
+	int				active;
 	struct 			s_ent	*next;
 }					t_ent;
 
