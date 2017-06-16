@@ -6,7 +6,7 @@
 /*   By: sjones <sjones@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/05 15:48:24 by sjones            #+#    #+#             */
-/*   Updated: 2017/06/15 21:36:22 by sjones           ###   ########.fr       */
+/*   Updated: 2017/06/15 21:38:38 by sjones           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int		input_file(t_db *db)
 	int		k;
 
 	ft_putendl("am I here?1");
-	fp = fopen("../output_file.json", "r+");
+	fp = fopen("output_file.json", "r+");
 	ft_putendl("am I here after I opened file?");
 	k = 0;
     line = "";
