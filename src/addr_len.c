@@ -6,7 +6,7 @@
 /*   By: sjones <sjones@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/14 22:19:16 by sjones            #+#    #+#             */
-/*   Updated: 2017/06/15 19:38:43 by sjones           ###   ########.fr       */
+/*   Updated: 2017/06/15 20:39:03 by sjones           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ int		addr_len(char *line)
 
 	r = 0;
 	t = line;
+	if (ft_strncmp(line, "undefined", 9) == 0)
+		return (9);
 	while (*t++ != 39)
 		r++;
 	return (r);
