@@ -6,7 +6,7 @@
 /*   By: sjones <sjones@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/05 15:46:41 by sjones            #+#    #+#             */
-/*   Updated: 2017/06/15 18:41:34 by sjones           ###   ########.fr       */
+/*   Updated: 2017/06/15 18:44:04 by sjones           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,6 @@ void	add_ent(t_db *db, char *line)
 	t3 = t1->next;
 	t1->next = t2;
 	all_puts(t2, stdout);
-	t2->next = t3;
+	t1->next->next = t3;
 	ft_putendl("plerp5");
 }
