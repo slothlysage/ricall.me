@@ -6,7 +6,7 @@
 /*   By: sjones <sjones@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/05 15:48:24 by sjones            #+#    #+#             */
-/*   Updated: 2017/06/15 21:43:52 by sjones           ###   ########.fr       */
+/*   Updated: 2017/06/15 22:25:15 by sjones           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int		input_file(t_db *db)
 	while (get_next_line(fileno(fp), &tmp) > 0)
 	{
 		if (k % 17 == 1)
-            db->entry_count += 1;
+            k += 0;
 		else if (k % 17 == 0)
 		{
 			line = ft_strjoin(line, tmp);
