@@ -6,7 +6,7 @@
 /*   By: sjones <sjones@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/05 15:48:31 by sjones            #+#    #+#             */
-/*   Updated: 2017/06/15 20:33:43 by sjones           ###   ########.fr       */
+/*   Updated: 2017/06/15 20:55:54 by sjones           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@ t_ent	*init_ent(char *line)
 	char	*t;
 
 	t = line;
-	ft_putendl("init_ent");
 	if (!(e = (t_ent*)malloc(sizeof(t_ent))))
 		return (NULL);
 	if (e)
@@ -55,10 +54,8 @@ t_ent	*init_ent(char *line)
 		t = next_in(t);
 		e->confirmation = ft_atoi(t);
 		t = next_in(t);
-		printf("This is active: %d\n", ft_atoi(t));
 		e->active = ft_atoi(t);
         e->next = NULL;
 	}
-	all_puts(e, stdout);
 	return (e);
 }
