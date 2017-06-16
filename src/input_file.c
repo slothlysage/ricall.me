@@ -6,7 +6,7 @@
 /*   By: sjones <sjones@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/05 15:48:24 by sjones            #+#    #+#             */
-/*   Updated: 2017/06/15 21:41:51 by sjones           ###   ########.fr       */
+/*   Updated: 2017/06/15 21:42:39 by sjones           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int		input_file(t_db *db)
 	ft_putendl("am I here?1");
 	fp = fopen("output_file.json", "r+");
 	ft_putendl("am I here after I opened file?");
-	k = 0;
+	k = 1;
     line = "";
     get_next_line(fileno(fp), &tmp);
 	ft_putendl("am I here after a GNL?");
