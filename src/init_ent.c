@@ -6,7 +6,7 @@
 /*   By: sjones <sjones@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/05 15:48:31 by sjones            #+#    #+#             */
-/*   Updated: 2017/06/15 18:49:56 by sjones           ###   ########.fr       */
+/*   Updated: 2017/06/15 19:39:16 by sjones           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,9 +39,9 @@ t_ent	*init_ent(char *line)
 		t = next_in(t);
 		e->location = strndup(t, char_len(t));
 		t = next_in(t);
-		e->current_address = strndup(t, char_len(t));
+		e->current_address = strndup(t, addr_len(t));
 		t = next_in(t);
-		e->event_address = strndup(t, char_len(t));
+		e->event_address = strndup(t, addr_len(t));
 		t = next_in(t);
 		e->title = strndup(t, char_len(t));
 		t = next_in(t);
