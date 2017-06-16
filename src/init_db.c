@@ -6,7 +6,7 @@
 /*   By: sjones <sjones@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/05 15:48:24 by sjones            #+#    #+#             */
-/*   Updated: 2017/06/15 19:27:05 by sjones           ###   ########.fr       */
+/*   Updated: 2017/06/15 19:29:11 by sjones           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,18 +28,14 @@ t_db	*init_db(FILE *fp, int ac, char **av)
 	while (get_next_line(fileno(fp), &tmp) > 0)
 	{
 		if (k % 17 == 1)
-		{
             db->entry_count += 1;
-			if (k != 1)
-            {
+		else if (k % 17 == 0)
+		{
 				add_ent(db, line);
 				line = "";
-            }
 		}
 		else
-		{
 			line = ft_strjoin(line, tmp);
-		}
 		k += 1;
 	}
 	AC = ac;
