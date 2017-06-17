@@ -6,7 +6,7 @@
 /*   By: sjones <sjones@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/05 15:48:45 by sjones            #+#    #+#             */
-/*   Updated: 2017/06/16 00:31:20 by sjones           ###   ########.fr       */
+/*   Updated: 2017/06/17 15:39:00 by sjones           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ t_ent	*get_meds(t_ent *t)
 					meds->next = meds->next->next;
 			}
 		}
-		med = meds->next;
+		meds = meds->next;
 	}
 	return (head);
 }
