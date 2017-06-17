@@ -6,7 +6,7 @@
 /*   By: sjones <sjones@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/05 15:48:45 by sjones            #+#    #+#             */
-/*   Updated: 2017/06/17 16:05:14 by sjones           ###   ########.fr       */
+/*   Updated: 2017/06/17 16:08:17 by sjones           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,5 +23,6 @@ int		print_today(t_db *db)
 //	all_meds = get_meds(all);
 //	today = get_today(all);
 //	today_meds = get_meds(today);
+	all_puts(DE, stdout);
 	return (1);
 }
