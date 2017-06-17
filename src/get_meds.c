@@ -1,27 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_today.c                                      :+:      :+:    :+:   */
+/*   get_meds.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sjones <sjones@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/05/05 15:48:45 by sjones            #+#    #+#             */
-/*   Updated: 2017/06/17 16:02:51 by sjones           ###   ########.fr       */
+/*   Created: 2017/06/17 15:54:55 by sjones            #+#    #+#             */
+/*   Updated: 2017/06/17 16:02:48 by sjones           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/ft_db.h"
 
-int		print_today(t_db *db)
+t_ent	*get_meds(t_ent *t)
 {
-	t_ent	*all;
-	t_ent	*today;
-	t_ent	*all_meds;
-	t_ent	*today_meds;
+	t_ent	*meds;
+	t_ent	*head;
 
-	all = DE;
-	all_meds = get_meds(all);
-	today = get_today(all);
-	today_meds = get_meds(today);
-	return (1);
+	if (!t)
+		return (NULL);
+	while (t && t->categoryid != 1)
+		t = t->next;
+	meds = t;
+	head = meds;
+	while (meds)
+	{
+		if (meds->categoryid == 1)
+		{
+			all_puts(meds, stdout);
+			while (meds->next)
+			{
+				if (meds->next->categoryid != 1)
+					meds->next = meds->next->next;
+			}
+		}
+		meds = meds->next;
+	}
+	return (head);
 }
