@@ -6,7 +6,7 @@
 /*   By: sjones <sjones@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/05 15:48:45 by sjones            #+#    #+#             */
-/*   Updated: 2017/06/17 15:42:11 by sjones           ###   ########.fr       */
+/*   Updated: 2017/06/17 15:46:52 by sjones           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ t_ent	*get_meds(t_ent *t)
 	t_ent	*meds;
 	t_ent	*head;
 
+	if (!t)
+		return (NULL);
 	while (t && t->categoryid != 1)
 		t = t->next;
 	meds = t;
@@ -64,12 +66,14 @@ t_ent	*get_today(t_ent *t)
 
 int		print_today(t_db *db)
 {
-	t_ent	*t;
+	t_ent	*all;
 	t_ent	*today;
-	t_ent	*meds;
+	t_ent	*all_meds;
+	t_ent	*today_meds;
 
-	t = DE;
-	today = get_today(t);
-	meds = get_meds(today);
+	all = DE;
+	all_meds = get_meds(all);
+	today = get_today(all);
+	today_meds = get_meds(today);
 	return (1);
 }
