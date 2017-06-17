@@ -6,7 +6,7 @@
 #    By: sjones <sjones@student.42.us.org>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/05/05 18:34:09 by sjones            #+#    #+#              #
-#    Updated: 2017/06/15 19:40:10 by sjones           ###   ########.fr        #
+#    Updated: 2017/06/15 23:00:19 by sjones           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,6 +31,7 @@ SRC =	add_ent.c		\
 			init_ent.c		\
 			main.c			\
 			print_all.c		\
+			print_today.c	\
 			print_ent.c		\
 			addr_len.c		\
 			char_len.c		\

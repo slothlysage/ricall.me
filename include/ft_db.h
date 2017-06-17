@@ -6,7 +6,7 @@
 /*   By: sjones <sjones@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/05 15:48:04 by sjones            #+#    #+#             */
-/*   Updated: 2017/06/15 20:35:18 by sjones           ###   ########.fr       */
+/*   Updated: 2017/06/16 00:13:28 by sjones           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <stdio.h>
 # include <strings.h>
 # include <unistd.h>
+# include <time.h>
 # include "../libft/libft.h"
 # define DE db->ents
 # define AC db->ac
@@ -62,6 +63,7 @@ void				print_help(void);
 void				print_err(void);
 void				check_query(t_db *db, int i);
 int					print_all(t_db *db);
+int					print_today(t_db *db);
 int					print_ent(t_db *db, char *event_id);
 void				add_ent(t_db *db, char *line);
 int					export_all(t_db *db);

@@ -6,7 +6,7 @@
 /*   By: sjones <sjones@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/05 15:46:59 by sjones            #+#    #+#             */
-/*   Updated: 2017/06/15 15:17:37 by sjones           ###   ########.fr       */
+/*   Updated: 2017/06/15 22:58:36 by sjones           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@ void	check_query(t_db *db, int i)
 			i += help();
 		else if (strcmp(AV[i], "print_all") == 0)
 			i += print_all(db);
+		else if (strcmp(AV[i], "print_today") == 0)
+			i += print_today(db);
 		else if (strcmp(AV[i], "print") == 0)
 			i += print_ent(db, AV[i + 1]);
 		else if (strcmp(AV[i], "export_all") == 0)
