@@ -6,7 +6,7 @@
 /*   By: sjones <sjones@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/05 15:48:45 by sjones            #+#    #+#             */
-/*   Updated: 2017/06/17 20:17:58 by sjones           ###   ########.fr       */
+/*   Updated: 2017/06/17 20:19:07 by sjones           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ int		print_today(t_db *db)
 	t_ent	*morning_meds;
 	t_ent	*afternoon_meds;
 	t_ent	*evening_meds;
-	t_ent	*next_event;
+//	t_ent	*next_event;
 	FILE	*fp;
 
 	fp = fopen("today", "w+");
