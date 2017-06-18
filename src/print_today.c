@@ -6,7 +6,7 @@
 /*   By: sjones <sjones@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/05 15:48:45 by sjones            #+#    #+#             */
-/*   Updated: 2017/06/18 15:09:45 by sjones           ###   ########.fr       */
+/*   Updated: 2017/06/18 15:23:04 by sjones           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,10 @@ char	*get_mes(t_ent *t)
 	mes = "";
 	ft_putendl("Here in get_mes");
 	if (t == NULL)
+	{
+		ft_putendl("no mes");
 		return ("Nothing here\n");
+	}
 	while (t->next)
 	{
 		time = t->start_date + 11;
@@ -35,6 +38,7 @@ char	*get_mes(t_ent *t)
 	time = t->start_date + 11;
 	time = ft_atoi(time) > 12 ? ft_itoa(ft_atoi(time) - 12) : time;
 	sprintf(mes, "you have to %s at %s.\n", t->title, time);
+	ft_putendl(mes);
 	ft_putendl("survived getting mes");
 	return (mes);
 }
@@ -42,9 +46,9 @@ char	*get_mes(t_ent *t)
 void	print_meds(FILE *fp, t_ent *morning, t_ent *afternoon, t_ent *evening)
 {
 	ft_putendl("Here in printing meds");
-	fputs((morning == NULL) ? "0" : "1", fp);
-	fputs((afternoon == NULL) ? "0" : "1", fp);
-	fputs((evening == NULL) ? "0" : "1", fp);
+	fputs((morning == NULL) ? "0\n" : "1\n", fp);
+	fputs((afternoon == NULL) ? "0\n" : "1\n", fp);
+	fputs((evening == NULL) ? "0\n" : "1\n", fp);
 	ft_putendl("getting messages in printing meds");
 	fputs(get_mes(morning), fp);
 	fputs(get_mes(afternoon), fp);
@@ -67,7 +71,7 @@ int		print_today(t_db *db)
 	FILE	*fp;
 
 	ft_putendl("begin print today");
-	fp = fopen("today.txt", "w+");
+	fp = fopen("today.txt", "a+");
 	all = DE;
 	ft_putendl("now getting day");
 	today = all == NULL ? NULL : get_today(all);
