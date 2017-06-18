@@ -6,7 +6,7 @@
 /*   By: sjones <sjones@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/05 15:48:45 by sjones            #+#    #+#             */
-/*   Updated: 2017/06/18 16:51:17 by sjones           ###   ########.fr       */
+/*   Updated: 2017/06/18 16:56:09 by sjones           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,8 @@ void	print_next(FILE *fp, t_ent *today)
 			today = today->next;
 		n2 = ((ft_atoi(ft_strdup(today->start_date + 11)) * 100) + (ft_atoi(ft_strdup(today->start_date + 14))));
 	}
+	fputs((today == NULL) ? "0\n" : "1\n", fp);
+	fprintf(fp, "%s is coming up at %.2d:%.2d", today->title, n2, n2 % 100);
 }
 
 int		print_today(t_db *db)
