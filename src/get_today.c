@@ -6,7 +6,7 @@
 /*   By: sjones <sjones@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/17 15:53:00 by sjones            #+#    #+#             */
-/*   Updated: 2017/06/18 00:17:12 by sjones           ###   ########.fr       */
+/*   Updated: 2017/06/18 00:18:23 by sjones           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,7 @@ t_ent	*get_today(t_ent *t)
 	printf("This is me\n");
 	while (today->next != NULL && (date_grab(today->start_date) < dn))
 	{
+		printf("In loop\n");
 		all_puts(today, stdout);
 		today = today->next;
 	}
