@@ -6,7 +6,7 @@
 /*   By: sjones <sjones@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/05 15:48:45 by sjones            #+#    #+#             */
-/*   Updated: 2017/06/17 20:23:19 by sjones           ###   ########.fr       */
+/*   Updated: 2017/06/17 21:57:39 by sjones           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,7 @@ void	print_meds(FILE *fp, t_ent *morning, t_ent *afternoon, t_ent *evening)
 int		print_today(t_db *db)
 {
 	t_ent	*all;
+	t_ent	*today;
 	t_ent	*morning;
 	t_ent	*afternoon;
 	t_ent	*evening;
@@ -64,9 +65,10 @@ int		print_today(t_db *db)
 	fp = fopen("today", "w+");
 	all = DE;
 	ft_putendl("now getting day");
-	morning = get_time(all, 5, 12);
-	afternoon = get_time(all, 12, 18);
-	evening = get_time(all, 18, 23);
+	today = get_today(all);
+	morning = get_time(today, 5, 12);
+	afternoon = get_time(today, 12, 18);
+	evening = get_time(today, 18, 23);
 	ft_putendl("now getting meds");
 	morning_meds = get_meds(morning);
 	afternoon_meds = get_meds(afternoon);
