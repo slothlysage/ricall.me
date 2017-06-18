@@ -6,7 +6,7 @@
 /*   By: sjones <sjones@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/05 15:48:45 by sjones            #+#    #+#             */
-/*   Updated: 2017/06/18 15:04:03 by sjones           ###   ########.fr       */
+/*   Updated: 2017/06/18 15:09:45 by sjones           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ char	*get_mes(t_ent *t)
 	mes = "";
 	ft_putendl("Here in get_mes");
 	if (t == NULL)
-		return ("No morning medication");
+		return ("Nothing here\n");
 	while (t->next)
 	{
 		time = t->start_date + 11;
@@ -34,11 +34,10 @@ char	*get_mes(t_ent *t)
 	sprintf(mes, (i > 1) ? "and" : "");
 	time = t->start_date + 11;
 	time = ft_atoi(time) > 12 ? ft_itoa(ft_atoi(time) - 12) : time;
-	sprintf(mes, "you have to %s at %s.", t->title, time);
+	sprintf(mes, "you have to %s at %s.\n", t->title, time);
 	ft_putendl("survived getting mes");
 	return (mes);
 }
-
 
 void	print_meds(FILE *fp, t_ent *morning, t_ent *afternoon, t_ent *evening)
 {
@@ -52,8 +51,6 @@ void	print_meds(FILE *fp, t_ent *morning, t_ent *afternoon, t_ent *evening)
 	fputs(get_mes(evening), fp);
 	ft_putendl("survived printing meds");
 }
-
-
 
 int		print_today(t_db *db)
 {
@@ -70,7 +67,7 @@ int		print_today(t_db *db)
 	FILE	*fp;
 
 	ft_putendl("begin print today");
-	fp = fopen("today", "w+");
+	fp = fopen("today.txt", "w+");
 	all = DE;
 	ft_putendl("now getting day");
 	today = all == NULL ? NULL : get_today(all);
@@ -98,14 +95,7 @@ int		print_today(t_db *db)
 	all_puts(evening_meds, stdout);
 	ft_putendl("now printing meds");
 	print_meds(fp, morning_meds, afternoon_meds, evening_meds);
-
-
-
-	fputs(!morning ? "0" : "1", fp);
-	fputs(!afternoon ? "0" : "1", fp);
-	fputs(!evening ? "0" : "1", fp);
-
-	//	all_puts(DE, stdout);
+	print_meds(fp, morning, afternoon, evening);
 	ft_putendl("survived print today");
 	return (1);
 }
