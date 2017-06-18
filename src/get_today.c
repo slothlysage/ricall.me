@@ -6,13 +6,13 @@
 /*   By: sjones <sjones@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/17 15:53:00 by sjones            #+#    #+#             */
-/*   Updated: 2017/06/17 15:54:15 by sjones           ###   ########.fr       */
+/*   Updated: 2017/06/17 18:35:39 by sjones           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/ft_db.h"
 
-t_ent	*get_today(t_ent *t)
+t_ent	get_today(t_ent *t)
 {
 	t_ent		*today;
 	char		*date;
@@ -34,5 +34,5 @@ t_ent	*get_today(t_ent *t)
 		today->next = t;
 		t = t->next;
 	}
-	return (today);
+	return (*today);
 }
