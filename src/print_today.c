@@ -6,7 +6,7 @@
 /*   By: sjones <sjones@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/05 15:48:45 by sjones            #+#    #+#             */
-/*   Updated: 2017/06/17 20:20:18 by sjones           ###   ########.fr       */
+/*   Updated: 2017/06/17 20:23:19 by sjones           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,14 +60,18 @@ int		print_today(t_db *db)
 //	t_ent	*next_event;
 	FILE	*fp;
 
+	ft_putendl("begin print today");
 	fp = fopen("today", "w+");
 	all = DE;
+	ft_putendl("now getting day");
 	morning = get_time(all, 5, 12);
 	afternoon = get_time(all, 12, 18);
 	evening = get_time(all, 18, 23);
+	ft_putendl("now getting meds");
 	morning_meds = get_meds(morning);
 	afternoon_meds = get_meds(afternoon);
 	evening_meds = get_meds(evening);
+	ft_putendl("now printing meds");
 	print_meds(fp, morning_meds, afternoon_meds, evening_meds);
 
 
@@ -77,5 +81,6 @@ int		print_today(t_db *db)
 	fputs(!evening ? "0" : "1", fp);
 
 	//	all_puts(DE, stdout);
+	ft_putendl("survived print today");
 	return (1);
 }
