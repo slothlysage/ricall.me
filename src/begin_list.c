@@ -6,7 +6,7 @@
 /*   By: sjones <sjones@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/05 15:46:53 by sjones            #+#    #+#             */
-/*   Updated: 2017/06/14 22:18:40 by sjones           ###   ########.fr       */
+/*   Updated: 2017/06/17 18:44:21 by sjones           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,10 +37,10 @@ void    begin_list(t_db *db, char *line)
         t = next_in(t);
         DE->location = strndup(t, char_len(t));
         t = next_in(t);
-        DE->current_address = strndup(t, char_len(t));
-        t = next_in(t);
-        DE->event_address = strndup(t, char_len(t));
-        t = next_in(t);
+        DE->current_address = strndup(t, addr_len(t));
+		t = next_in(t);
+		DE->event_address = strndup(t, addr_len(t));
+		t += addr_len(t) + 15;
         DE->title = strndup(t, char_len(t));
         t = next_in(t);
         DE->category = strndup(t, char_len(t));
