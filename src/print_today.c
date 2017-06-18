@@ -6,7 +6,7 @@
 /*   By: sjones <sjones@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/05 15:48:45 by sjones            #+#    #+#             */
-/*   Updated: 2017/06/18 15:24:52 by sjones           ###   ########.fr       */
+/*   Updated: 2017/06/18 15:25:50 by sjones           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,11 +29,14 @@ char	*get_mes(t_ent *t)
 	ft_putendl("trying to make a message");
 	while (t->next)
 	{
+		ft_putendl("1 get_mes loop");
 		time = t->start_date + 11;
 		time = ft_atoi(time) > 12 ? ft_itoa(ft_atoi(time) - 12) : time;
+		ft_putendl("2 get_mes loop");
 		sprintf(mes, "you have to %s at %s, ", t->title, time);
 		i++;
 		t = t->next;
+		ft_putendl("3 get_mes loop");
 	}
 	ft_putendl("after get_mes loop");
 	sprintf(mes, (i > 1) ? "and" : "");
