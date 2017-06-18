@@ -6,7 +6,7 @@
 /*   By: sjones <sjones@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/17 15:53:00 by sjones            #+#    #+#             */
-/*   Updated: 2017/06/18 00:34:39 by sjones           ###   ########.fr       */
+/*   Updated: 2017/06/18 00:52:57 by sjones           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,6 +91,8 @@ t_ent	*get_today(t_ent *t)
 //		if (today->next)
 //			today = today->next;
 //	}
+	if (date_grab(today->start_date) > dn1)
+		today = NULL;
 	ft_putendl("Survived get today");
 	return (head);
 }
