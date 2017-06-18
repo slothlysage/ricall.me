@@ -6,7 +6,7 @@
 /*   By: sjones <sjones@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/17 15:53:00 by sjones            #+#    #+#             */
-/*   Updated: 2017/06/17 21:02:20 by sjones           ###   ########.fr       */
+/*   Updated: 2017/06/17 21:33:02 by sjones           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,13 +27,13 @@ t_ent	*get_time(t_ent *t, int start, int end)
 	sprintf(date, "%d-%02d-%02dT%02d", tm->tm_year + 1900, tm->tm_mon + 1, tm->tm_mday, start);
 	ft_putendl(date);
 	today = t;
-	while (today->next && ft_strncmp(today->start_date, date, 13) < 0)
+	while (today->next && ft_strncmp(today->start_date + 11, date + 11, 2) < 0)
 		today = today->next;
 	head = today;
 	today = today->next;
 	sprintf(date, "%d-%02d-%02dT%02d", tm->tm_year + 1900, tm->tm_mon + 1, tm->tm_mday, end);
 	ft_putendl(date);
-	while (today->next && ft_strncmp(today->start_date, date, 13) < 0)
+	while (today->next && ft_strncmp(today->start_date, date, 10) == 0 && ft_strncmp(today->start_date + 11, date + 11, 2) < 0)
 		today = today->next;
 	today = NULL;
 	ft_putendl("Survived get time");
