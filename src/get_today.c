@@ -6,7 +6,7 @@
 /*   By: sjones <sjones@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/17 15:53:00 by sjones            #+#    #+#             */
-/*   Updated: 2017/06/18 00:27:57 by sjones           ###   ########.fr       */
+/*   Updated: 2017/06/18 00:29:35 by sjones           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,13 +64,14 @@ t_ent	*get_today(t_ent *t)
 	dn1 = ft_atoi(date);
 	today = t;
 	all_puts(today->next, stdout);
-	printf("This is me\n");
 	dn2 = date_grab(today->start_date);
+	printf("dn1:%d:dn2:%d:\n", dn1, dn2);
 	while (today->next && dn2 < dn1)
 	{
 		printf("In loop\n");
 		today = today->next;
 		dn2 = date_grab(today->start_date);
+		printf("dn1:%d:dn2:%d:\n", dn1, dn2);
 		printf("In loop2\n");
 	}
 	printf("Not\n");
