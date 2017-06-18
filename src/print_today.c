@@ -6,7 +6,7 @@
 /*   By: sjones <sjones@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/05 15:48:45 by sjones            #+#    #+#             */
-/*   Updated: 2017/06/18 15:33:05 by sjones           ###   ########.fr       */
+/*   Updated: 2017/06/18 15:35:52 by sjones           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,9 +34,11 @@ char	*get_mes(t_ent *t)
 //		hour = ft_atoi(hour) > 12 ? ft_itoa(ft_atoi(hour) - 12) : hour;
 		ft_putendl("2 get_mes loop");
 		printf("%s and %s: are trying to be printed\n", t->title, hour);
-		sprintf(mes, "you have to %s at %s, ", t->title, hour);
+		sprintf(mes, "you have to %s at %s o'clock, ", t->title, hour);
+		printf("%s: is being created\n", mes);
 		i++;
-		t = t->next;
+		if (t->next != NULL)
+			t = t->next;
 		ft_putendl("3 get_mes loop");
 	}
 	ft_putendl("after get_mes loop");
@@ -44,7 +46,7 @@ char	*get_mes(t_ent *t)
 	sprintf(hour, "%.2s", t->start_date + 11);
 //	hour = ft_atoi(hour) > 12 ? ft_itoa(ft_atoi(hour) - 12) : hour;
 	ft_putendl("writing mes");
-	sprintf(mes, "you have to %s at %s.\n", t->title, hour);
+	sprintf(mes, "you have to %s at %s o'clock.\n", t->title, hour);
 	ft_putendl(mes);
 	ft_putendl("survived getting mes");
 	return (mes);
