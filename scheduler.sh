@@ -1,1 +1,1 @@
-./ft_db input_file print_all
+./ricall_db input_file print_all

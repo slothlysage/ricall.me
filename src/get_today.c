@@ -6,7 +6,7 @@
 /*   By: sjones <sjones@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/17 15:53:00 by sjones            #+#    #+#             */
-/*   Updated: 2017/06/18 13:15:56 by sjones           ###   ########.fr       */
+/*   Updated: 2017/06/18 13:26:14 by sjones           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,11 @@
 
 int		grab_hour(char *time)
 {
-	char	tmp[2];
+//	char	tmp[2];
 
-	sprintf(tmp, "%.2s", time + 11);
-	ft_putendl(tmp);
-	return(ft_atoi(tmp));
+//	sprintf(tmp, "%.2s", time + 11);
+//	ft_putendl(tmp);
+	return(ft_atoi(time + 11));//tmp
 }
 
 t_ent	*get_time(t_ent *t, int start, int end)
@@ -43,10 +43,14 @@ t_ent	*get_time(t_ent *t, int start, int end)
 	head = today;
 	all_puts(head, stdout);
 	sprintf(date, "%02d", end);
-	ft_putendl(date);
-	while (today->next && ft_strncmp(today->start_date + 11, date, 2) == 0)
+	dn1 = ft_atoi(date);
+	while (today->next && dn2 < dn1)
+	{
 		today = today->next;
-	today = NULL;
+		dn2 = grab_hour(today->start_date);
+	}
+	if (grab_hour(today->start_date) > dn1)
+		today = NULL;
 	ft_putendl("Survived get time");
 	return (head);
 }
@@ -56,7 +60,6 @@ int		date_grab(char *time)
 	char	tmp[6];
 
 	sprintf(tmp, "%.2s%.2s%.2s", time + 2, time + 5, time + 8);
-	ft_putendl(tmp);
 	return(ft_atoi(tmp));
 }
 
