@@ -6,7 +6,7 @@
 /*   By: sjones <sjones@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/17 15:53:00 by sjones            #+#    #+#             */
-/*   Updated: 2017/06/18 14:00:11 by sjones           ###   ########.fr       */
+/*   Updated: 2017/06/18 14:01:25 by sjones           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,11 @@
 
 int		grab_hour(char *time)
 {
-//	char	tmp[2];
+	char	tmp[2];
 
-//	sprintf(tmp, "%.2s", time + 11);
-	ft_putnbr(ft_atoi(time + 11));
-	return(ft_atoi(time + 11));//tmp
+	sprintf(tmp, "%.2s", time + 11);
+	ft_putnbr(ft_atoi(tmp));
+	return(ft_atoi(tmp));
 }
 
 t_ent	*get_time(t_ent *t, int start, int end)
