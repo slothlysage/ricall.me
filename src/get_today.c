@@ -6,7 +6,7 @@
 /*   By: sjones <sjones@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/17 15:53:00 by sjones            #+#    #+#             */
-/*   Updated: 2017/06/17 20:26:15 by sjones           ###   ########.fr       */
+/*   Updated: 2017/06/17 20:28:05 by sjones           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,13 +26,14 @@ t_ent	*get_time(t_ent *t, int start, int end)
 	date = "";
 	ft_putendl("get time 2");
 	sprintf(date, "%d-%d-%dT%2d\n", tm->tm_year + 1900, tm->tm_mon + 1, tm->tm_mday, start);
-	while (t && ft_strncmp(t->start_date, date, 13) < 0)
-		t = t->next;
 	ft_putendl("get time 3");
+	while (t->next && ft_strncmp(t->start_date, date, 13) < 0)
+		t = t->next;
+	ft_putendl("get time 4");
 	today = t;
 	t = t->next;
 	sprintf(date, "%d-%d-%dT%2d\n", tm->tm_year + 1900, tm->tm_mon + 1, tm->tm_mday, end);
-	while (t && ft_strncmp(t->start_date, date, 13) < 0)
+	while (t->next && ft_strncmp(t->start_date, date, 13) < 0)
 	{
 		while (today)
 			today = today->next;
