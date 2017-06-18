@@ -6,13 +6,13 @@
 /*   By: sjones <sjones@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/17 15:54:55 by sjones            #+#    #+#             */
-/*   Updated: 2017/06/17 18:35:28 by sjones           ###   ########.fr       */
+/*   Updated: 2017/06/17 18:46:21 by sjones           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/ft_db.h"
 
-t_ent	get_meds(t_ent *t)
+t_ent	*get_meds(t_ent *t)
 {
 	t_ent	*meds;
 	t_ent	*head;
@@ -36,5 +36,5 @@ t_ent	get_meds(t_ent *t)
 		}
 		meds = meds->next;
 	}
-	return (*head);
+	return (head);
 }

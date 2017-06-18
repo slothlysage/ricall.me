@@ -6,7 +6,7 @@
 /*   By: sjones <sjones@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/05 15:48:04 by sjones            #+#    #+#             */
-/*   Updated: 2017/06/17 18:34:22 by sjones           ###   ########.fr       */
+/*   Updated: 2017/06/17 18:55:59 by sjones           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,8 +53,9 @@ typedef struct		s_db
 	t_ent			*ents;
 }					t_db;
 
-t_ent				get_today(t_ent *t);
-t_ent				get_meds(t_ent *t);
+t_ent				init_blank(void);
+t_ent				*get_today(t_ent *t);
+t_ent				*get_meds(t_ent *t);
 int					input_file(t_db *db);
 char				*next_in(char *line);
 int					char_len(char *line);

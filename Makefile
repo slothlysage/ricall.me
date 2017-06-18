@@ -6,7 +6,7 @@
 #    By: sjones <sjones@student.42.us.org>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/05/05 18:34:09 by sjones            #+#    #+#              #
-#    Updated: 2017/06/17 15:57:11 by sjones           ###   ########.fr        #
+#    Updated: 2017/06/17 18:56:16 by sjones           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,6 +37,7 @@ SRC =	add_ent.c		\
 			print_ent.c		\
 			addr_len.c		\
 			char_len.c		\
+			init_blank.c	\
 			help.c
 
 OBJ = $(SRC:.c=.o)
