@@ -6,7 +6,7 @@
 /*   By: sjones <sjones@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/17 15:53:00 by sjones            #+#    #+#             */
-/*   Updated: 2017/06/18 14:10:50 by sjones           ###   ########.fr       */
+/*   Updated: 2017/06/18 15:00:33 by sjones           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,6 @@ int		grab_hour(char *time)
 	char	tmp[2];
 
 	sprintf(tmp, "%.2s", time + 11);
-	ft_putnbr(ft_atoi(tmp));
-	ft_putchar('\n');
 	return(ft_atoi(tmp));
 }
 
@@ -47,7 +45,6 @@ t_ent	*get_time(t_ent *t, int start, int end)
 	}
 	if (grab_hour(today->start_date) > end)
 		today = NULL;
-	all_puts(head, stdout);
 	ft_putendl("Survived get time");
 	return (head);
 }

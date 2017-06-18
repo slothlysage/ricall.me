@@ -6,7 +6,7 @@
 /*   By: sjones <sjones@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/05 15:48:45 by sjones            #+#    #+#             */
-/*   Updated: 2017/06/18 14:26:36 by sjones           ###   ########.fr       */
+/*   Updated: 2017/06/18 15:00:30 by sjones           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,9 +38,11 @@ char	*get_mes(t_ent *t)
 
 void	print_meds(FILE *fp, t_ent *morning, t_ent *afternoon, t_ent *evening)
 {
+	ft_putendl("Here in printing meds");
 	fputs((morning == NULL) ? "0" : "1", fp);
 	fputs((afternoon == NULL) ? "0" : "1", fp);
 	fputs((evening == NULL) ? "0" : "1", fp);
+	ft_putendl("getting messages in printing meds");
 	fputs((morning == NULL) ? "No morning medication" : get_mes(morning), fp);
 	fputs((afternoon == NULL) ? "Medication free afternoon" : get_mes(afternoon), fp);
 	fputs((evening == NULL) ? "Evening without medication" : get_mes(evening), fp);

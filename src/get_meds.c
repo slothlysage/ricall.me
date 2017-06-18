@@ -6,7 +6,7 @@
 /*   By: sjones <sjones@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/17 15:54:55 by sjones            #+#    #+#             */
-/*   Updated: 2017/06/18 13:05:39 by sjones           ###   ########.fr       */
+/*   Updated: 2017/06/18 15:00:38 by sjones           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ t_ent	*get_meds(t_ent *t)
 		return (NULL);
 	while (t && t->categoryid != 1)
 		t = t->next;
-	ft_putendl("got to the first med rec");
 	meds = t;
 	head = meds;
 	while (meds->next)
