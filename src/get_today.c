@@ -6,7 +6,7 @@
 /*   By: sjones <sjones@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/17 15:53:00 by sjones            #+#    #+#             */
-/*   Updated: 2017/06/17 20:28:05 by sjones           ###   ########.fr       */
+/*   Updated: 2017/06/17 20:33:32 by sjones           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 t_ent	*get_time(t_ent *t, int start, int end)
 {
 	t_ent		*today;
-	char		*date;
+	char		date[256];
 	time_t		ti; 
 	struct tm	*tm;
 
@@ -23,7 +23,6 @@ t_ent	*get_time(t_ent *t, int start, int end)
 	today = NULL;
 	ti = time(NULL);
 	tm = localtime(&ti);
-	date = "";
 	ft_putendl("get time 2");
 	sprintf(date, "%d-%d-%dT%2d\n", tm->tm_year + 1900, tm->tm_mon + 1, tm->tm_mday, start);
 	ft_putendl("get time 3");
