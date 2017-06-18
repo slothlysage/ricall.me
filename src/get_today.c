@@ -6,7 +6,7 @@
 /*   By: sjones <sjones@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/17 15:53:00 by sjones            #+#    #+#             */
-/*   Updated: 2017/06/17 23:37:41 by sjones           ###   ########.fr       */
+/*   Updated: 2017/06/17 23:50:02 by sjones           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,7 @@ t_ent	*get_today(t_ent *t)
 	dn = ft_atoi(date);
 	today = t;
 	all_puts(today, stdout);
+	ft_putendl(ft_itoa(date_grab(today->start_date)));
 	while (today->next != NULL && dn > date_grab(today->start_date))
 	{
 		all_puts(today, stdout);
