@@ -6,25 +6,40 @@
 /*   By: sjones <sjones@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/17 15:53:00 by sjones            #+#    #+#             */
-/*   Updated: 2017/06/18 00:52:57 by sjones           ###   ########.fr       */
+/*   Updated: 2017/06/18 13:15:56 by sjones           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/ft_db.h"
+
+int		grab_hour(char *time)
+{
+	char	tmp[2];
+
+	sprintf(tmp, "%.2s", time + 11);
+	ft_putendl(tmp);
+	return(ft_atoi(tmp));
+}
 
 t_ent	*get_time(t_ent *t, int start, int end)
 {
 	t_ent		*today;
 	t_ent		*head;
 	char		date[2];
+	int			dn1;
+	int			dn2;
 
 	ft_putendl("entering get time");
 	today = NULL;
 	sprintf(date, "%02d", start);
-	ft_putendl(date);
+	dn1 = ft_atoi(date);
 	today = t;
-	while (today->next && ft_strncmp(today->start_date + 11, date, 2) != 0)
+	dn2 = grab_hour(today->start_date);
+	while (today->next && dn2 < dn1)
+	{
 		today = today->next;
+		dn2 = grab_hour(today->start_date);
+	}
 	head = today;
 	all_puts(head, stdout);
 	sprintf(date, "%02d", end);
@@ -38,7 +53,7 @@ t_ent	*get_time(t_ent *t, int start, int end)
 
 int		date_grab(char *time)
 {
-	char	tmp[8];
+	char	tmp[6];
 
 	sprintf(tmp, "%.2s%.2s%.2s", time + 2, time + 5, time + 8);
 	ft_putendl(tmp);
@@ -63,26 +78,18 @@ t_ent	*get_today(t_ent *t)
 	ft_putendl(date + 2);
 	dn1 = ft_atoi(date + 2);
 	today = t;
-	all_puts(today->next, stdout);
 	dn2 = date_grab(today->start_date);
-	printf("dn1:%d:dn2:%d:\n", dn1, dn2);
 	while (today->next && dn2 < dn1)
 	{
-		printf("In loop\n");
 		today = today->next;
 		dn2 = date_grab(today->start_date);
-		printf("dn1:%d:dn2:%d:\n", dn1, dn2);
-		printf("In loop2\n");
 	}
-	printf("Not\n");
 	head = today;
-	all_puts(head, stdout);
 	while (today->next && dn2 == dn1)
 	{
 		today = today->next;
 		dn2 = date_grab(today->start_date);
 	}
-	all_puts(today, stdout);
 //	today = NULL;
 //	today = head;
 //	while (today)
