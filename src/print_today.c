@@ -6,7 +6,7 @@
 /*   By: sjones <sjones@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/05 15:48:45 by sjones            #+#    #+#             */
-/*   Updated: 2017/06/17 21:57:39 by sjones           ###   ########.fr       */
+/*   Updated: 2017/06/18 00:02:13 by sjones           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,7 @@ int		print_today(t_db *db)
 	ft_putendl("begin print today");
 	fp = fopen("today", "w+");
 	all = DE;
+	all_puts(all, stdout);
 	ft_putendl("now getting day");
 	today = get_today(all);
 	morning = get_time(today, 5, 12);
