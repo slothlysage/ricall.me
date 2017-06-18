@@ -6,7 +6,7 @@
 /*   By: sjones <sjones@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/05 15:48:45 by sjones            #+#    #+#             */
-/*   Updated: 2017/06/18 00:07:12 by sjones           ###   ########.fr       */
+/*   Updated: 2017/06/18 00:55:57 by sjones           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,8 @@ int		print_today(t_db *db)
 	all = DE;
 	ft_putendl("now getting day");
 	today = get_today(all);
+	ft_putendl("now getting thirds");
+	all_puts(today, stdout);
 	morning = get_time(today, 5, 12);
 	afternoon = get_time(today, 12, 18);
 	evening = get_time(today, 18, 23);
