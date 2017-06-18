@@ -6,7 +6,7 @@
 /*   By: sjones <sjones@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/17 15:53:00 by sjones            #+#    #+#             */
-/*   Updated: 2017/06/18 00:24:25 by sjones           ###   ########.fr       */
+/*   Updated: 2017/06/18 00:27:57 by sjones           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,8 @@ t_ent	*get_today(t_ent *t)
 	t_ent		*today;
 	t_ent		*head;
 	char		date[8];
-	int			dn;
+	int			dn1;
+	int			dn2;
 	time_t		ti; 
 	struct tm	*tm;
 
@@ -60,21 +61,26 @@ t_ent	*get_today(t_ent *t)
 	tm = localtime(&ti);
 	sprintf(date, "%.4d%.2d%.2d", tm->tm_year + 1900, tm->tm_mon + 1, tm->tm_mday);
 	ft_putendl(date);
-	dn = ft_atoi(date);
+	dn1 = ft_atoi(date);
 	today = t;
 	all_puts(today->next, stdout);
 	printf("This is me\n");
-	while (today->next && (date_grab(today->start_date) < dn))
+	dn2 = date_grab(today->start_date);
+	while (today->next && dn2 < dn1)
 	{
 		printf("In loop\n");
 		today = today->next;
+		dn2 = date_grab(today->start_date);
 		printf("In loop2\n");
 	}
 	printf("Not\n");
 	head = today;
 	all_puts(head, stdout);
-	while (today->next && dn == date_grab(today->start_date))
+	while (today->next && dn2 == dn1)
+	{
 		today = today->next;
+		dn2 = date_grab(today->start_date);
+	}
 	all_puts(today, stdout);
 //	today = NULL;
 //	today = head;
