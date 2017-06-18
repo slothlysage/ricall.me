@@ -6,7 +6,7 @@
 /*   By: sjones <sjones@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/05 15:48:45 by sjones            #+#    #+#             */
-/*   Updated: 2017/06/18 15:35:52 by sjones           ###   ########.fr       */
+/*   Updated: 2017/06/18 15:36:50 by sjones           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,10 @@
 char	*get_mes(t_ent *t)
 {
 	int		i;
-	char	*mes;
+	char	mes[2048];
 	char	hour[2];
 
 	i = 0;
-	mes = "";
 	ft_putendl("Here in get_mes");
 	if (t == NULL)
 	{
