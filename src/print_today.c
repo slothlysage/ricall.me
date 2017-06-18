@@ -6,7 +6,7 @@
 /*   By: sjones <sjones@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/05 15:48:45 by sjones            #+#    #+#             */
-/*   Updated: 2017/06/18 00:55:57 by sjones           ###   ########.fr       */
+/*   Updated: 2017/06/18 13:05:17 by sjones           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,16 +65,22 @@ int		print_today(t_db *db)
 	fp = fopen("today", "w+");
 	all = DE;
 	ft_putendl("now getting day");
-	today = get_today(all);
+	today = all == NULL ? NULL : get_today(all);
 	ft_putendl("now getting thirds");
 	all_puts(today, stdout);
-	morning = get_time(today, 5, 12);
-	afternoon = get_time(today, 12, 18);
-	evening = get_time(today, 18, 23);
+	morning = today == NULL ? NULL : get_time(today, 5, 12);
+	all_puts(today, stdout);
+	afternoon = today == NULL ? NULL : get_time(today, 12, 18);
+	all_puts(today, stdout);
+	evening = today == NULL ? NULL : get_time(today, 18, 23);
+	all_puts(today, stdout);
 	ft_putendl("now getting meds");
-	morning_meds = get_meds(morning);
-	afternoon_meds = get_meds(afternoon);
-	evening_meds = get_meds(evening);
+	morning_meds = morning == NULL ? NULL : get_meds(morning);
+	all_puts(today, stdout);
+	afternoon_meds = afternoon == NULL ? NULL : get_meds(afternoon);
+	all_puts(today, stdout);
+	evening_meds = evening == NULL ? NULL : get_meds(evening);
+	all_puts(today, stdout);
 	ft_putendl("now printing meds");
 	print_meds(fp, morning_meds, afternoon_meds, evening_meds);
 
