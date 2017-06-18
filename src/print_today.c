@@ -6,7 +6,7 @@
 /*   By: sjones <sjones@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/05 15:48:45 by sjones            #+#    #+#             */
-/*   Updated: 2017/06/18 15:36:50 by sjones           ###   ########.fr       */
+/*   Updated: 2017/06/18 15:38:17 by sjones           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ char	*get_mes(t_ent *t)
 {
 	int		i;
 	char	mes[2048];
+	char	*ret;
 	char	hour[2];
 
 	i = 0;
@@ -48,7 +49,8 @@ char	*get_mes(t_ent *t)
 	sprintf(mes, "you have to %s at %s o'clock.\n", t->title, hour);
 	ft_putendl(mes);
 	ft_putendl("survived getting mes");
-	return (mes);
+	ret = ft_strdup(mes);
+	return (ret);
 }
 
 void	print_meds(FILE *fp, t_ent *morning, t_ent *afternoon, t_ent *evening)
