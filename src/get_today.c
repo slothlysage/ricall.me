@@ -6,7 +6,7 @@
 /*   By: sjones <sjones@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/17 15:53:00 by sjones            #+#    #+#             */
-/*   Updated: 2017/06/17 21:53:01 by sjones           ###   ########.fr       */
+/*   Updated: 2017/06/17 23:15:13 by sjones           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,11 +36,20 @@ t_ent	*get_time(t_ent *t, int start, int end)
 	return (head);
 }
 
+int		date_grab(char *time)
+{
+	char	date[8];
+
+	sprintf(date, "%4s%2s%2s", time, time + 4, time + 2);
+	return(ft_atoi(date));
+}
+
 t_ent	*get_today(t_ent *t)
 {
 	t_ent		*today;
 	t_ent		*head;
-	char		date[10];
+	char		date[8];
+	int			dn;
 	time_t		ti; 
 	struct tm	*tm;
 
@@ -48,14 +57,15 @@ t_ent	*get_today(t_ent *t)
 	today = NULL;
 	ti = time(NULL);
 	tm = localtime(&ti);
-	sprintf(date, "%d-%02d-%02d", tm->tm_year + 1900, tm->tm_mon + 1, tm->tm_mday);
+	sprintf(date, "%d%02d%02d", tm->tm_year + 1900, tm->tm_mon + 1, tm->tm_mday);
 	ft_putendl(date);
+	dn = ft_atoi(date);
 	today = t;
-	while (today->next && ft_strncmp(today->start_date, date, 10) != 0)
+	while (today->next && dn > date_grab(today->start_date))
 		today = today->next;
 	head = today;
 	all_puts(head, stdout);
-	while (today->next && ft_strncmp(today->start_date, date, 10) == 0)
+	while (today->next && dn == date_grab(today->start_date))
 		today = today->next;
 	all_puts(today, stdout);
 	today = NULL;
