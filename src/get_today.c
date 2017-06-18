@@ -6,7 +6,7 @@
 /*   By: sjones <sjones@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/17 15:53:00 by sjones            #+#    #+#             */
-/*   Updated: 2017/06/18 14:05:51 by sjones           ###   ########.fr       */
+/*   Updated: 2017/06/18 14:09:37 by sjones           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ int		grab_hour(char *time)
 
 	sprintf(tmp, "%.2s", time + 11);
 	ft_putnbr(ft_atoi(tmp));
+	ft_putchar('\n');
 	return(ft_atoi(tmp));
 }
 
