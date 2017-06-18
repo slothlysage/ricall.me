@@ -6,13 +6,13 @@
 #    By: sjones <sjones@student.42.us.org>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/05/05 18:34:09 by sjones            #+#    #+#              #
-#    Updated: 2017/06/17 18:56:16 by sjones           ###   ########.fr        #
+#    Updated: 2017/06/18 12:58:01 by sjones           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 .PHONY: all re clean fclean
 
-NAME = ft_db
+NAME = ricall_db
 
 SRC =	add_ent.c		\
 			input_file.c	\

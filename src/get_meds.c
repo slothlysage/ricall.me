@@ -6,7 +6,7 @@
 /*   By: sjones <sjones@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/17 15:54:55 by sjones            #+#    #+#             */
-/*   Updated: 2017/06/17 21:27:11 by sjones           ###   ########.fr       */
+/*   Updated: 2017/06/18 13:00:37 by sjones           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,8 @@ t_ent	*get_meds(t_ent *t)
 		if (meds->next)
 			meds = meds->next;
 	}
+	if (meds->categoryid != 1)
+		meds = NULL;
 	ft_putendl("survived getting meds");
 	return (head);
 }
