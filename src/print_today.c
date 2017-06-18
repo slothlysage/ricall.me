@@ -6,7 +6,7 @@
 /*   By: sjones <sjones@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/05 15:48:45 by sjones            #+#    #+#             */
-/*   Updated: 2017/06/17 20:19:07 by sjones           ###   ########.fr       */
+/*   Updated: 2017/06/17 20:20:18 by sjones           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ char	*get_mes(t_ent *t)
 	char	*time;
 
 	i = 0;
+	mes = "";
 	while (t->next)
 	{
 		time = t->start_date + 11;
