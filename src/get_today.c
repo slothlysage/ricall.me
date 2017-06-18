@@ -6,7 +6,7 @@
 /*   By: sjones <sjones@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/17 15:53:00 by sjones            #+#    #+#             */
-/*   Updated: 2017/06/17 23:26:13 by sjones           ###   ########.fr       */
+/*   Updated: 2017/06/17 23:34:30 by sjones           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,11 +38,11 @@ t_ent	*get_time(t_ent *t, int start, int end)
 
 int		date_grab(char *time)
 {
-	char	date[8];
+	char	tmp[8];
 
-	sprintf(date, "%4s%2s%2s", time, time + 4, time + 2);
-	fputs(date, stdout);
-	return(ft_atoi(date));
+	sprintf(tmp, "%4s%2s%2s", time, time + 4, time + 2);
+	fputs(tmp, stdout);
+	return(ft_atoi(tmp));
 }
 
 t_ent	*get_today(t_ent *t)
@@ -61,9 +61,13 @@ t_ent	*get_today(t_ent *t)
 	sprintf(date, "%d%02d%02d", tm->tm_year + 1900, tm->tm_mon + 1, tm->tm_mday);
 	ft_putendl(date);
 	dn = ft_atoi(date);
+	ft_putendl(ft_itoa(dn));
 	today = t;
 	while (today->next && dn > date_grab(today->start_date))
+	{
+		all_puts(today, stdout);
 		today = today->next;
+	}
 	head = today;
 	all_puts(head, stdout);
 	while (today->next && dn == date_grab(today->start_date))
