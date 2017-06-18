@@ -6,7 +6,7 @@
 /*   By: sjones <sjones@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/17 15:53:00 by sjones            #+#    #+#             */
-/*   Updated: 2017/06/18 13:34:56 by sjones           ###   ########.fr       */
+/*   Updated: 2017/06/18 13:57:17 by sjones           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,11 @@ t_ent	*get_time(t_ent *t, int start, int end)
 	int			dn;
 
 	ft_putendl("entering get time");
-	today = NULL;
+	head = NULL;
 	today = t;
 	dn = grab_hour(today->start_date);
+	if (dn > end)
+		return (NULL);
 	while (today->next && dn < start)
 	{
 		today = today->next;
@@ -45,8 +47,9 @@ t_ent	*get_time(t_ent *t, int start, int end)
 	if (grab_hour(today->start_date) > end)
 		today = NULL;
 	all_puts(head, stdout);
+	today = head;
 	ft_putendl("Survived get time");
-	return (head);
+	return (today);
 }
 
 int		date_grab(char *time)
@@ -96,6 +99,7 @@ t_ent	*get_today(t_ent *t)
 //	}
 	if (date_grab(today->start_date) > dn1)
 		today = NULL;
+	today = head;
 	ft_putendl("Survived get today");
-	return (head);
+	return (today);
 }
