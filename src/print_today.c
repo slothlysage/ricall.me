@@ -6,7 +6,7 @@
 /*   By: sjones <sjones@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/05 15:48:45 by sjones            #+#    #+#             */
-/*   Updated: 2017/06/18 15:00:30 by sjones           ###   ########.fr       */
+/*   Updated: 2017/06/18 15:04:03 by sjones           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,9 @@ char	*get_mes(t_ent *t)
 
 	i = 0;
 	mes = "";
+	ft_putendl("Here in get_mes");
+	if (t == NULL)
+		return ("No morning medication");
 	while (t->next)
 	{
 		time = t->start_date + 11;
@@ -32,6 +35,7 @@ char	*get_mes(t_ent *t)
 	time = t->start_date + 11;
 	time = ft_atoi(time) > 12 ? ft_itoa(ft_atoi(time) - 12) : time;
 	sprintf(mes, "you have to %s at %s.", t->title, time);
+	ft_putendl("survived getting mes");
 	return (mes);
 }
 
@@ -43,9 +47,10 @@ void	print_meds(FILE *fp, t_ent *morning, t_ent *afternoon, t_ent *evening)
 	fputs((afternoon == NULL) ? "0" : "1", fp);
 	fputs((evening == NULL) ? "0" : "1", fp);
 	ft_putendl("getting messages in printing meds");
-	fputs((morning == NULL) ? "No morning medication" : get_mes(morning), fp);
-	fputs((afternoon == NULL) ? "Medication free afternoon" : get_mes(afternoon), fp);
-	fputs((evening == NULL) ? "Evening without medication" : get_mes(evening), fp);
+	fputs(get_mes(morning), fp);
+	fputs(get_mes(afternoon), fp);
+	fputs(get_mes(evening), fp);
+	ft_putendl("survived printing meds");
 }
 
 
