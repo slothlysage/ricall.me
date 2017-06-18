@@ -6,7 +6,7 @@
 /*   By: sjones <sjones@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/17 15:53:00 by sjones            #+#    #+#             */
-/*   Updated: 2017/06/17 23:50:02 by sjones           ###   ########.fr       */
+/*   Updated: 2017/06/17 23:51:03 by sjones           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@ int		date_grab(char *time)
 	char	tmp[8];
 
 	sprintf(tmp, "%4s%2s%2s", time, time + 4, time + 2);
+	ft_putendl(tmp);
 	fputs(tmp, stdout);
 	return(ft_atoi(tmp));
 }
