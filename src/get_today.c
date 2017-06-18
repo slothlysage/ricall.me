@@ -6,7 +6,7 @@
 /*   By: sjones <sjones@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/17 15:53:00 by sjones            #+#    #+#             */
-/*   Updated: 2017/06/18 14:01:25 by sjones           ###   ########.fr       */
+/*   Updated: 2017/06/18 14:05:51 by sjones           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,14 +89,6 @@ t_ent	*get_today(t_ent *t)
 		today = today->next;
 		dn2 = date_grab(today->start_date);
 	}
-//	today = NULL;
-//	today = head;
-//	while (today)
-//	{
-//		all_puts(today, stdout);
-//		if (today->next)
-//			today = today->next;
-//	}
 	if (date_grab(today->start_date) > dn1)
 		today = NULL;
 	today = head;
