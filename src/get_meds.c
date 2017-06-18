@@ -6,7 +6,7 @@
 /*   By: sjones <sjones@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/17 15:54:55 by sjones            #+#    #+#             */
-/*   Updated: 2017/06/17 20:43:36 by sjones           ###   ########.fr       */
+/*   Updated: 2017/06/17 20:45:00 by sjones           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,11 +29,8 @@ t_ent	*get_meds(t_ent *t)
 		if (meds->categoryid == 1)
 		{
 			all_puts(meds, stdout);
-			while (meds->next)
-			{
-				if (meds->next->categoryid != 1)
-					meds->next = meds->next->next;
-			}
+			if (meds->next && meds->next->categoryid != 1)
+				meds->next = meds->next->next;
 		}
 		meds = meds->next;
 	}
