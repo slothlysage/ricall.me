@@ -6,7 +6,7 @@
 /*   By: sjones <sjones@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/05 15:48:45 by sjones            #+#    #+#             */
-/*   Updated: 2017/06/18 15:31:28 by sjones           ###   ########.fr       */
+/*   Updated: 2017/06/18 15:33:05 by sjones           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ char	*get_mes(t_ent *t)
 		sprintf(hour, "%.2s", t->start_date + 11);
 //		hour = ft_atoi(hour) > 12 ? ft_itoa(ft_atoi(hour) - 12) : hour;
 		ft_putendl("2 get_mes loop");
+		printf("%s and %s: are trying to be printed\n", t->title, hour);
 		sprintf(mes, "you have to %s at %s, ", t->title, hour);
 		i++;
 		t = t->next;
