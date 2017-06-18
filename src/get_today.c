@@ -6,7 +6,7 @@
 /*   By: sjones <sjones@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/17 15:53:00 by sjones            #+#    #+#             */
-/*   Updated: 2017/06/17 20:50:09 by sjones           ###   ########.fr       */
+/*   Updated: 2017/06/17 20:53:11 by sjones           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 t_ent	*get_time(t_ent *t, int start, int end)
 {
 	t_ent		*today;
-	t_ent		*head;
 	char		date[256];
 	time_t		ti; 
 	struct tm	*tm;
@@ -27,16 +26,10 @@ t_ent	*get_time(t_ent *t, int start, int end)
 	while (t->next && ft_strncmp(t->start_date, date, 13) < 0)
 		t = t->next;
 	today = t;
-	head = today;
 	t = t->next;
 	sprintf(date, "%d-%02d-%02dT%02d\n", tm->tm_year + 1900, tm->tm_mon + 1, tm->tm_mday, end);
 	while (t->next && ft_strncmp(t->start_date, date, 13) < 0)
-	{
-		while (today->next)
-			today = today->next;
-		today->next = t;
 		t = t->next;
-	}
-	today->next = NULL;
-	return (head);
+	t->next = NULL;
+	return (today);
 }
