@@ -6,7 +6,7 @@
 /*   By: sjones <sjones@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/05 15:48:45 by sjones            #+#    #+#             */
-/*   Updated: 2017/06/18 13:40:02 by sjones           ###   ########.fr       */
+/*   Updated: 2017/06/18 13:44:38 by sjones           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,11 +67,13 @@ int		print_today(t_db *db)
 	ft_putendl("now getting day");
 	today = all == NULL ? NULL : get_today(all);
 	all_puts(today, stdout);
-	ft_putendl("now getting thirds");
+	ft_putendl("now getting morning");
 	morning = today == NULL ? NULL : get_time(today, 5, 12);
 	all_puts(morning, stdout);
+	ft_putendl("now getting afternoon");
 	afternoon = today == NULL ? NULL : get_time(today, 12, 18);
 	all_puts(afternoon, stdout);
+	ft_putendl("now getting evening");
 	evening = today == NULL ? NULL : get_time(today, 18, 23);
 	all_puts(evening, stdout);
 	ft_putendl("now getting meds");
