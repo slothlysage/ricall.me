@@ -6,7 +6,7 @@
 /*   By: sjones <sjones@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/17 15:53:00 by sjones            #+#    #+#             */
-/*   Updated: 2017/06/17 20:34:39 by sjones           ###   ########.fr       */
+/*   Updated: 2017/06/17 20:36:02 by sjones           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ t_ent	*get_time(t_ent *t, int start, int end)
 	ft_putendl("get time 4");
 	while (t->next && ft_strncmp(t->start_date, date, 13) < 0)
 	{
-		while (today)
+		while (today->next)
 			today = today->next;
 		today->next = t;
 		t = t->next;
