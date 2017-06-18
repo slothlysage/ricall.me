@@ -6,7 +6,7 @@
 /*   By: sjones <sjones@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/17 15:53:00 by sjones            #+#    #+#             */
-/*   Updated: 2017/06/17 23:51:03 by sjones           ###   ########.fr       */
+/*   Updated: 2017/06/17 23:56:06 by sjones           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ int		date_grab(char *time)
 {
 	char	tmp[8];
 
-	sprintf(tmp, "%4s%2s%2s", time, time + 4, time + 2);
+	sprintf(tmp, "%.4s%.2s%.2s", time, time + 4, time + 2);
 	ft_putendl(tmp);
 	fputs(tmp, stdout);
 	return(ft_atoi(tmp));
@@ -59,7 +59,7 @@ t_ent	*get_today(t_ent *t)
 	today = NULL;
 	ti = time(NULL);
 	tm = localtime(&ti);
-	sprintf(date, "%d%02d%02d", tm->tm_year + 1900, tm->tm_mon + 1, tm->tm_mday);
+	sprintf(date, "%.4d%0.2d%0.2d", tm->tm_year + 1900, tm->tm_mon + 1, tm->tm_mday);
 	ft_putendl(date);
 	dn = ft_atoi(date);
 	today = t;
