@@ -6,7 +6,7 @@
 /*   By: sjones <sjones@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/05 15:47:15 by sjones            #+#    #+#             */
-/*   Updated: 2017/06/15 20:57:16 by sjones           ###   ########.fr       */
+/*   Updated: 2017/06/18 22:07:10 by sjones           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@ void	db_2file(t_db *db)
 
 	fp = fopen("ricall.db", "w+");
 	t = db->ents;
-
 	fprintf(fp, "All %d events:\n", (int)db->entry_count);
 	while (t)
 	{

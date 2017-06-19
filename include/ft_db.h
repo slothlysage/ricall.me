@@ -6,7 +6,7 @@
 /*   By: sjones <sjones@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/05 15:48:04 by sjones            #+#    #+#             */
-/*   Updated: 2017/06/18 21:43:13 by sjones           ###   ########.fr       */
+/*   Updated: 2017/06/18 22:44:15 by sjones           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,14 +16,14 @@
 # include <stdio.h>
 # include <strings.h>
 # include <unistd.h>
-#define __USE_XOPEN
-#define _GNU_SOURCE 1
+# define __USE_XOPEN
+# define _GNU_SOURCE 1
 # include <time.h>
 # include "../libft/libft.h"
 # define DE db->ents
 # define AC db->ac
 # define AV db->av
-#define DB = ricall.me
+# define DB = ricall.me
 
 typedef struct		s_ent
 {
@@ -33,7 +33,7 @@ typedef struct		s_ent
 	char			*leave_time;
 	char			*start_date;
 	char			*end_date;
-	char			*location; 
+	char			*location;
 	char			*current_address;
 	char			*event_address;
 	char			*title;
@@ -43,7 +43,7 @@ typedef struct		s_ent
 	int				reminded;
 	int				confirmation;
 	int				active;
-	struct 			s_ent	*next;
+	struct s_ent	*next;
 }					t_ent;
 
 typedef struct		s_db

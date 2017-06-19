@@ -6,7 +6,7 @@
 /*   By: sjones <sjones@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/05 15:48:24 by sjones            #+#    #+#             */
-/*   Updated: 2017/06/17 16:52:40 by sjones           ###   ########.fr       */
+/*   Updated: 2017/06/18 22:06:53 by sjones           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,12 +21,12 @@ int		input_file(t_db *db)
 
 	fp = fopen("output_file.json", "r+");
 	k = 1;
-    line = "";
-    get_next_line(fileno(fp), &tmp);
+	line = "";
+	get_next_line(fileno(fp), &tmp);
 	while (get_next_line(fileno(fp), &tmp) > 0)
 	{
 		if (k % 17 == 1)
-            k += 0;
+			k += 0;
 		else if (k % 17 == 0)
 		{
 			line = ft_strjoin(line, tmp);

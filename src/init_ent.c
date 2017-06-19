@@ -6,7 +6,7 @@
 /*   By: sjones <sjones@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/05 15:48:31 by sjones            #+#    #+#             */
-/*   Updated: 2017/06/17 18:44:24 by sjones           ###   ########.fr       */
+/*   Updated: 2017/06/18 22:19:19 by sjones           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ t_ent	*init_ent(char *line)
 	if (e)
 	{
 		t += char_len(t);
-        t++;
+		t++;
 		e->user_id = strndup(t, char_len(t));
 		t = next_in(t);
 		e->event_id = strndup(t, char_len(t));
@@ -31,8 +31,8 @@ t_ent	*init_ent(char *line)
 		e->ricall_time = strndup(t, 19);
 		t = next_in(t);
 		e->leave_time = strndup(t, 19);
-		t = next_in(t);	
-        e->start_date = strndup(t, 19);
+		t = next_in(t);
+		e->start_date = strndup(t, 19);
 		t = next_in(t);
 		e->end_date = strndup(t, 19);
 		t = next_in(t);
@@ -55,7 +55,7 @@ t_ent	*init_ent(char *line)
 		e->confirmation = ft_atoi(t);
 		t = next_in(t);
 		e->active = ft_atoi(t);
-        e->next = NULL;
+		e->next = NULL;
 	}
 	return (e);
 }

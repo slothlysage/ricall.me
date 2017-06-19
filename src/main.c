@@ -6,7 +6,7 @@
 /*   By: sjones <sjones@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/05 15:48:38 by sjones            #+#    #+#             */
-/*   Updated: 2017/06/15 20:56:19 by sjones           ###   ########.fr       */
+/*   Updated: 2017/06/18 22:09:02 by sjones           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int		main(int ac, char **av)
 	FILE	*fp;
 
 	fp = fopen("ricall.db", "r+");
-    db = init_db(fp, ac, av);
+	db = init_db(fp, ac, av);
 	AC = ac;
 	fclose(fp);
 	if (ac == 1)

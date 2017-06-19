@@ -6,7 +6,7 @@
 /*   By: sjones <sjones@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/17 18:48:11 by sjones            #+#    #+#             */
-/*   Updated: 2017/06/17 19:01:10 by sjones           ###   ########.fr       */
+/*   Updated: 2017/06/18 22:09:37 by sjones           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ t_ent	*init_blank(void)
 		blank->event_id = "";
 		blank->ricall_time = "";
 		blank->leave_time = "";
-        blank->start_date = "";
+		blank->start_date = "";
 		blank->end_date = "";
 		blank->location = "";
 		blank->current_address = "";
@@ -36,7 +36,7 @@ t_ent	*init_blank(void)
 		blank->reminded = 0;
 		blank->confirmation = 0;
 		blank->active = 0;
-        blank->next = NULL;
+		blank->next = NULL;
 	}
 	return (blank);
 }

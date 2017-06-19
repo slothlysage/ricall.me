@@ -6,7 +6,7 @@
 /*   By: sjones <sjones@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/05 15:48:45 by sjones            #+#    #+#             */
-/*   Updated: 2017/06/18 21:05:55 by sjones           ###   ########.fr       */
+/*   Updated: 2017/06/18 22:40:23 by sjones           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,9 @@ char	*get_mes(t_ent *t)
 	}
 	sprintf(mes, (i > 1) ? "and" : "");
 	sprintf(hour, "%.2s", t->start_date + 11);
-	sprintf(mes, "your going to %s at around %d o'clock.\n", ft_strcmp(t->title, "") == 0 ? "an event" : t->title, ft_atoi(hour) % 12);
+	sprintf(mes, "your going to %s at around %d o'clock.\n",
+			ft_strcmp(t->title, "") == 0 ? "an event" : t->title,
+			ft_atoi(hour) % 12);
 	ret = ft_strdup(mes);
 	return (ret);
 }
@@ -47,13 +49,9 @@ void	print_meds(FILE *fp, t_ent *morning, t_ent *afternoon, t_ent *evening)
 	fputs(get_mes(evening), fp);
 }
 
-
-
-
-
 void	print_next(FILE *fp, t_ent *today)
 {
-	time_t		ti; 
+	time_t		ti;
 	struct tm	*tm;
 	char		now[4];
 	int			n1;
@@ -66,24 +64,28 @@ void	print_next(FILE *fp, t_ent *today)
 	sprintf(now, "%.2d%.2d", tm->tm_hour, tm->tm_min);
 	n1 = ft_atoi(now);
 	printf("%d\n", n1);
-	n2 = ((ft_atoi(ft_strdup(today->start_date + 11)) * 100) + (ft_atoi(ft_strdup(today->start_date + 14))));
+	n2 = ((ft_atoi(ft_strdup(today->start_date + 11)) * 100) +
+			(ft_atoi(ft_strdup(today->start_date + 14))));
 	while (today && (n1 / 100) > (n2 / 100))
 	{
 		if (today->next)
 			today = today->next;
-		n2 = ((ft_atoi(ft_strdup(today->start_date + 11)) * 100) + (ft_atoi(ft_strdup(today->start_date + 14))));
+		n2 = ((ft_atoi(ft_strdup(today->start_date + 11)) * 100) +
+				(ft_atoi(ft_strdup(today->start_date + 14))));
 	}
 	if (today == NULL)
 		fputs("0\nnothing coming up\n", fp);
 	else
 	{
-		fprintf(fp, "1\nwithin the hour your event %s is coming up at %.2d:%.2d\n", today->title, n2 / 100, n2 % 100);
+		fprintf(fp,
+			"1\nwithin the hour your event %s is coming up at %.2d:%.2d\n",
+			today->title, n2 / 100, n2 % 100);
 	}
 }
 
 void	print_impending(FILE *fp, t_ent *today)
 {
-	time_t		ti; 
+	time_t		ti;
 	struct tm	*tm;
 	char		now[4];
 	int			n1;
@@ -96,18 +98,21 @@ void	print_impending(FILE *fp, t_ent *today)
 	sprintf(now, "%.2d%.2d", tm->tm_hour, tm->tm_min);
 	n1 = ft_atoi(now);
 	printf("%d\n", n1);
-	n2 = ((ft_atoi(ft_strdup(today->start_date + 11)) * 100) + (ft_atoi(ft_strdup(today->start_date + 14))));
+	n2 = ((ft_atoi(ft_strdup(today->start_date + 11)) * 100) +
+			(ft_atoi(ft_strdup(today->start_date + 14))));
 	while (today && n1 / 100 > n2 / 100)
 	{
 		if (today->next)
 			today = today->next;
-		n2 = ((ft_atoi(ft_strdup(today->start_date + 11)) * 100) + (ft_atoi(ft_strdup(today->start_date + 14))));
+		n2 = ((ft_atoi(ft_strdup(today->start_date + 11)) * 100) +
+				(ft_atoi(ft_strdup(today->start_date + 14))));
 	}
 	if (today == NULL)
 		fputs("0\nnothing coming up\n", fp);
 	else if (n1 % 100 + 10 > n2 % 100)
 	{
-		fprintf(fp, "1\nyour event %s is coming up in the next 10 minutes\n", today->title);
+		fprintf(fp, "1\nyour event %s is coming up in the next 10 minutes\n",
+				today->title);
 	}
 	else
 		fputs("0\nnothing coming up\n", fp);
@@ -143,11 +148,11 @@ int		print_today(t_db *db)
 	all_puts(evening_meds, stdout);
 	fp = fopen("../today.txt", "w+");
 	print_meds(fp, morning_meds, afternoon_meds, evening_meds);
-	fclose (fp);
+	fclose(fp);
 	fp = fopen("../today.txt", "a+");
 	print_meds(fp, morning, afternoon, evening);
 	print_next(fp, today);
 	print_impending(fp, today);
-	fclose (fp);
+	fclose(fp);
 	return (1);
 }

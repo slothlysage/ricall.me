@@ -6,7 +6,7 @@
 /*   By: ewallner <ewallner@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/04 20:13:07 by ewallner          #+#    #+#             */
-/*   Updated: 2017/04/02 22:37:45 by mhaziza          ###   ########.fr       */
+/*   Updated: 2017/06/18 22:41:56 by sjones           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@
 # define ANSI_COLOR_CYAN    "\x1b[36m"
 # define ANSI_COLOR_RESET   "\x1b[0m"
 
-char        *ft_strndup(const char *s1, size_t n);
+char		*ft_strndup(const char *s1, size_t n);
 long		ft_atoli(const char *str);
 void		ft_base(unsigned int i, unsigned int base_length, char *base);
 int			ft_strstrlen(char **str);
