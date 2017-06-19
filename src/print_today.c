@@ -6,7 +6,7 @@
 /*   By: sjones <sjones@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/05 15:48:45 by sjones            #+#    #+#             */
-/*   Updated: 2017/06/18 19:25:46 by sjones           ###   ########.fr       */
+/*   Updated: 2017/06/18 19:29:37 by sjones           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,13 +96,21 @@ int		print_today(t_db *db)
 	FILE	*fp;
 
 	all = DE;
+	all_puts(all, fp);
 	today = all == NULL ? NULL : get_today(all);
+	all_puts(today, fp);
 	morning = today == NULL ? NULL : get_time(today, 5, 12);
+	all_puts(morning, fp);
 	afternoon = today == NULL ? NULL : get_time(today, 12, 18);
+	all_puts(afternoon, fp);
 	evening = today == NULL ? NULL : get_time(today, 18, 23);
+	all_puts(evening, fp);
 	morning_meds = morning == NULL ? NULL : get_meds(morning);
+	all_puts(morning_meds, fp);
 	afternoon_meds = afternoon == NULL ? NULL : get_meds(afternoon);
+	all_puts(afternoon_meds, fp);
 	evening_meds = evening == NULL ? NULL : get_meds(evening);
+	all_puts(evening_meds, fp);
 	fp = fopen("../today.txt", "w+");
 	print_meds(fp, morning_meds, afternoon_meds, evening_meds);
 	fclose (fp);
