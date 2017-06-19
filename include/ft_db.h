@@ -6,7 +6,7 @@
 /*   By: sjones <sjones@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/05 15:48:04 by sjones            #+#    #+#             */
-/*   Updated: 2017/06/18 21:40:45 by sjones           ###   ########.fr       */
+/*   Updated: 2017/06/18 21:43:13 by sjones           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,13 @@
 # include <stdio.h>
 # include <strings.h>
 # include <unistd.h>
+#define __USE_XOPEN
+#define _GNU_SOURCE 1
 # include <time.h>
 # include "../libft/libft.h"
 # define DE db->ents
 # define AC db->ac
 # define AV db->av
-#define _GNU_SOURCE 1
 #define DB = ricall.me
 
 typedef struct		s_ent
