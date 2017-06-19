@@ -6,7 +6,7 @@
 /*   By: sjones <sjones@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/05 15:46:41 by sjones            #+#    #+#             */
-/*   Updated: 2017/06/15 21:55:58 by sjones           ###   ########.fr       */
+/*   Updated: 2017/06/18 21:09:22 by sjones           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	add_ent(t_db *db, char *line)
     }
     t1 = DE;
 	t2 = init_ent(line);
-	while (t1->next != NULL && ft_strcmp(t1->event_id, t2->event_id) < 0)
+	while (t1->next != NULL && ft_strcmp(t1->start_date, t2->start_date) < 0)
 	{
 		t1 = t1->next;
 	}
