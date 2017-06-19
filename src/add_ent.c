@@ -6,17 +6,28 @@
 /*   By: sjones <sjones@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/05 15:46:41 by sjones            #+#    #+#             */
-/*   Updated: 2017/06/18 21:09:22 by sjones           ###   ########.fr       */
+/*   Updated: 2017/06/18 21:32:25 by sjones           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/ft_db.h"
 
+time_t	get_mktime(char *date)
+{
+	struct tm	tm;
+	
+	if (strptime(date, "%Y-%m-%dT%H:%M:%S", &tm) != NULL)
+		;
+	return (mktime(&tm));
+}
+
 void	add_ent(t_db *db, char *line)
 {
-	t_ent	*t1;
-	t_ent	*t2;
-	t_ent	*t3;
+	t_ent		*t1;
+	t_ent		*t2;
+	t_ent		*t3;
+	time_t		e1;
+	time_t		e2;
 
 	if (DE == NULL)
     {
@@ -26,7 +37,9 @@ void	add_ent(t_db *db, char *line)
     }
     t1 = DE;
 	t2 = init_ent(line);
-	while (t1->next != NULL && ft_strcmp(t1->start_date, t2->start_date) < 0)
+	e1 = get_mktime(t1->start_date);
+	e2 = get_mktime(t2->start_date);
+	while (t1->next != NULL && e1 > e2)
 	{
 		t1 = t1->next;
 	}
