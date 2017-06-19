@@ -6,7 +6,7 @@
 /*   By: sjones <sjones@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/05 15:48:45 by sjones            #+#    #+#             */
-/*   Updated: 2017/06/18 19:47:59 by sjones           ###   ########.fr       */
+/*   Updated: 2017/06/18 21:05:55 by sjones           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,8 +51,6 @@ void	print_meds(FILE *fp, t_ent *morning, t_ent *afternoon, t_ent *evening)
 
 
 
-
-
 void	print_next(FILE *fp, t_ent *today)
 {
 	time_t		ti; 
@@ -69,18 +67,50 @@ void	print_next(FILE *fp, t_ent *today)
 	n1 = ft_atoi(now);
 	printf("%d\n", n1);
 	n2 = ((ft_atoi(ft_strdup(today->start_date + 11)) * 100) + (ft_atoi(ft_strdup(today->start_date + 14))));
-	while (today->next && (n1 / 100) < (n2 / 100))
+	while (today && (n1 / 100) > (n2 / 100))
 	{
 		if (today->next)
 			today = today->next;
 		n2 = ((ft_atoi(ft_strdup(today->start_date + 11)) * 100) + (ft_atoi(ft_strdup(today->start_date + 14))));
 	}
 	if (today == NULL)
-		fputs("0\nnothing coming up\n0\nnothing coming up\n", fp);
+		fputs("0\nnothing coming up\n", fp);
 	else
 	{
 		fprintf(fp, "1\nwithin the hour your event %s is coming up at %.2d:%.2d\n", today->title, n2 / 100, n2 % 100);
 	}
+}
+
+void	print_impending(FILE *fp, t_ent *today)
+{
+	time_t		ti; 
+	struct tm	*tm;
+	char		now[4];
+	int			n1;
+	int			n2;
+
+	ti = time(NULL);
+	tm = localtime(&ti);
+	n1 = (tm->tm_hour * 100) + tm->tm_min;
+	printf("%d\n", n1);
+	sprintf(now, "%.2d%.2d", tm->tm_hour, tm->tm_min);
+	n1 = ft_atoi(now);
+	printf("%d\n", n1);
+	n2 = ((ft_atoi(ft_strdup(today->start_date + 11)) * 100) + (ft_atoi(ft_strdup(today->start_date + 14))));
+	while (today && n1 / 100 > n2 / 100)
+	{
+		if (today->next)
+			today = today->next;
+		n2 = ((ft_atoi(ft_strdup(today->start_date + 11)) * 100) + (ft_atoi(ft_strdup(today->start_date + 14))));
+	}
+	if (today == NULL)
+		fputs("0\nnothing coming up\n", fp);
+	else if (n1 % 100 + 10 > n2 % 100)
+	{
+		fprintf(fp, "1\nyour event %s is coming up in the next 10 minutes\n", today->title);
+	}
+	else
+		fputs("0\nnothing coming up\n", fp);
 }
 
 int		print_today(t_db *db)
@@ -117,6 +147,7 @@ int		print_today(t_db *db)
 	fp = fopen("../today.txt", "a+");
 	print_meds(fp, morning, afternoon, evening);
 	print_next(fp, today);
+	print_impending(fp, today);
 	fclose (fp);
 	return (1);
 }
