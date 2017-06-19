@@ -6,7 +6,7 @@
 /*   By: sjones <sjones@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/05 15:48:45 by sjones            #+#    #+#             */
-/*   Updated: 2017/06/18 19:34:41 by sjones           ###   ########.fr       */
+/*   Updated: 2017/06/18 19:43:26 by sjones           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,14 +25,14 @@ char	*get_mes(t_ent *t)
 	while (t->next)
 	{
 		sprintf(hour, "%.2s", t->start_date + 11);
-		sprintf(mes, "you have to %s at %s o'clock, ", t->title, hour);
+		sprintf(mes, "you have to  %s at %s o'clock, ", t->title, hour);
 		i++;
 		if (t->next != NULL)
 			t = t->next;
 	}
 	sprintf(mes, (i > 1) ? "and" : "");
 	sprintf(hour, "%.2s", t->start_date + 11);
-	sprintf(mes, "you have to %s at %s o'clock.\n", t->title, hour);
+	sprintf(mes, "your going to %s at around %d o'clock.\n", ft_strcmp(t->title, "") == 0 ? "exist" : t->title, ft_atoi(hour) % 12);
 	ret = ft_strdup(mes);
 	return (ret);
 }
