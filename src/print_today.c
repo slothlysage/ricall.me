@@ -6,7 +6,7 @@
 /*   By: sjones <sjones@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/05 15:48:45 by sjones            #+#    #+#             */
-/*   Updated: 2017/06/18 19:31:20 by sjones           ###   ########.fr       */
+/*   Updated: 2017/06/18 19:34:41 by sjones           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,7 @@ void	print_next(FILE *fp, t_ent *today)
 		fputs("0\nnothing coming up\n0\nnothing coming up\n", fp);
 	else
 	{
-		fprintf(fp, "1\nwithin the hour your event %s is coming up at %.2d:%.2d\n", today->title, n2, n2 % 100);
+		fprintf(fp, "1\nwithin the hour your event %s is coming up at %.2d:%.2d\n", today->title, n2 / 100, n2 % 100);
 	}
 }
 
