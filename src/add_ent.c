@@ -6,7 +6,7 @@
 /*   By: sjones <sjones@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/05 15:46:41 by sjones            #+#    #+#             */
-/*   Updated: 2017/06/18 21:32:25 by sjones           ###   ########.fr       */
+/*   Updated: 2017/06/18 21:34:13 by sjones           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,11 @@
 time_t	get_mktime(char *date)
 {
 	struct tm	tm;
+	time_t		ti;
 	
 	if (strptime(date, "%Y-%m-%dT%H:%M:%S", &tm) != NULL)
-		;
-	return (mktime(&tm));
+		ti = mktime(&tm);
+	return (ti);
 }
 
 void	add_ent(t_db *db, char *line)
