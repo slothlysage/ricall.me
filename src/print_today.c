@@ -6,7 +6,7 @@
 /*   By: sjones <sjones@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/05 15:48:45 by sjones            #+#    #+#             */
-/*   Updated: 2017/06/18 17:58:42 by sjones           ###   ########.fr       */
+/*   Updated: 2017/06/18 19:25:46 by sjones           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,12 @@ void	print_meds(FILE *fp, t_ent *morning, t_ent *afternoon, t_ent *evening)
 	fputs(get_mes(evening), fp);
 }
 
+
+
+
+
+
+
 void	print_next(FILE *fp, t_ent *today)
 {
 	time_t		ti; 
@@ -63,7 +69,7 @@ void	print_next(FILE *fp, t_ent *today)
 	n1 = ft_atoi(now);
 	printf("%d\n", n1);
 	n2 = ((ft_atoi(ft_strdup(today->start_date + 11)) * 100) + (ft_atoi(ft_strdup(today->start_date + 14))));
-	while (today->next && n1 < n2)
+	while (today->next && (n1 / 100) < (n2 / 100))
 	{
 		if (today->next)
 			today = today->next;
@@ -73,7 +79,7 @@ void	print_next(FILE *fp, t_ent *today)
 		fputs("0\nnothing coming up\n0\nnothing coming up\n", fp);
 	else
 	{
-		fprintf(fp, "1\n%s is coming up at %.2d:%.2d\n1\n%s is happening soon.\n", today->title, n2, n2 % 100, today->title);
+		fprintf(fp, "1\nwithin the hour your event %s is coming up at %.2d:%.2d\n", today->title, n2, n2 % 100);
 	}
 }
 
