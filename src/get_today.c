@@ -6,7 +6,7 @@
 /*   By: sjones <sjones@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/17 15:53:00 by sjones            #+#    #+#             */
-/*   Updated: 2017/06/18 22:39:15 by sjones           ###   ########.fr       */
+/*   Updated: 2017/06/18 22:47:31 by sjones           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,7 @@ char	*get_today_help(void)
 	struct tm	*tm;
 	char		*date;
 
+	date = ft_memalloc(8);
 	ti = time(NULL);
 	tm = localtime(&ti);
 	sprintf(date, "%.4d%.2d%.2d", tm->tm_year + 1900, tm->tm_mon + 1,
